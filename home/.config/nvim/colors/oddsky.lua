@@ -5,8 +5,6 @@ end
 local M = {}
 
 local function hsl_to_hex_css_str(css_str)
-    -- Удалить лишние пробелы вокруг чисел и процентов!
-    -- Извлечь 3 числа (h, s%, l%) игнорируя пробелы вокруг них и запятых
     local h, s, l = css_str:match("hsl%(%s*([%d%.]+)%s*,%s*([%d%.]+)%%%s*,%s*([%d%.]+)%%%s*%)")
     if not h or not s or not l then
         error("Invalid CSS hsl() string: " .. tostring(css_str))
@@ -62,15 +60,15 @@ M.colors = {
     yellow  =  hsl_to_hex_css_str("hsl(50  ,59%  ,60%)"),
     green   =  hsl_to_hex_css_str("hsl(120 ,32%  ,60%)"),
     cyan    =  hsl_to_hex_css_str("hsl(185 ,27%  ,55%)"),
-    blue    =  hsl_to_hex_css_str("hsl(230 ,67%  ,70%)"),
+    blue    =  hsl_to_hex_css_str("hsl(230 ,70%  ,70%)"),
     violet  =  hsl_to_hex_css_str("hsl(265 ,42%  ,66%)"),
     purple  =  hsl_to_hex_css_str("hsl(300 ,42%  ,66%)"),
     search  =  hsl_to_hex_css_str("hsl(57  ,62%  ,21%)"),
     visual  =  hsl_to_hex_css_str("hsl(210 ,62%  ,21%)"),
-    bg_1    =  "#2e2e2e",
-    bg_2    =  hsl_to_hex_css_str("hsl(0   ,0%   ,21%)"),
-    bg_3    =  hsl_to_hex_css_str("hsl(0   ,0%   ,30%)"),
-    fg_3    =  hsl_to_hex_css_str("hsl(0   ,0%   ,40%)"),
+    bg_1    =  "#000000",
+    bg_2    =  hsl_to_hex_css_str("hsl(0   ,0%   ,10%)"),
+    bg_3    =  hsl_to_hex_css_str("hsl(0   ,0%   ,15%)"),
+    fg_3    =  hsl_to_hex_css_str("hsl(0   ,0%   ,30%)"),
     fg_2    =  hsl_to_hex_css_str("hsl(0   ,0%   ,50%)"),
     fg_1    =  hsl_to_hex_css_str("hsl(0   ,0%   ,80%)"),
 }
@@ -78,7 +76,7 @@ M.colors = {
 
 M.set = function(colors)
     -- UI highlight
-    hl("Normal", { fg = colors.fg_1, bg = colors.bg_1 })
+    hl("Normal", { fg = colors.fg_1 })
     hl("NormalFloat", { fg = colors.fg_1 })
     hl("FloatBorder", { fg = colors.fg_3 })
     hl("ColorColumn", { bg = colors.bg_2 })
@@ -99,7 +97,7 @@ M.set = function(colors)
     hl("SignColumn", { fg = colors.fg_1 })
     hl("IncSearch", { fg = colors.fg_1, bg = colors.search })
     hl("CurSearch", { fg = colors.fg_1, bg = colors.search })
-    hl("LineNr", { fg = colors.bg_3 })
+    hl("LineNr", { fg = colors.fg_3 })
     hl("CursorLineNr", { fg = colors.yellow, bg = colors.bg_2 })
     hl("MatchParen", { fg = colors.fg_1 })
     hl("ModeMsg", { fg = colors.fg_1, bg = colors.bg_2 })
@@ -112,10 +110,10 @@ M.set = function(colors)
     hl("Question", { fg = colors.blue })
     hl("Search", { fg = colors.fg_1, bg = colors.search })
     hl("SpecialKey", { fg = colors.fg_1 })
-    hl("StatusLine", { fg = colors.fg_1, bg = colors.bg_3 })
-    hl("StatusLineNC", { fg = colors.fg_3, bg = colors.bg_2 })
-    hl("TabLine", { fg = colors.fg_1, bg = colors.bg_3 })
-    hl("TabLineFill", { fg = colors.fg_1, bg = colors.bg_3 })
+    hl("StatusLine", { fg = colors.fg_2, bg = colors.bg_3, italic = true })
+    hl("StatusLineNC", { fg = colors.fg_3, bg = colors.bg_2, italic = true })
+    hl("TabLine", { fg = colors.fg_2, bg = colors.bg_3 })
+    hl("TabLineFill", { fg = colors.fg_3, bg = colors.bg_3 })
     hl("TablineSel", { fg = colors.fg_1, bg = colors.bg_1 })
     hl("Title", { italic = true })
     hl("Visual", { bg = colors.visual })
@@ -163,7 +161,6 @@ M.set = function(colors)
     hl("Whitespace", { fg = colors.fg_3 })
 
     --- Treesitter highlight
-    -- hl("@spell", { link = "@string" })
     hl("@error", { fg = colors.red })
     hl("@text.literal", { fg = colors.fg_1 })
     hl("@text.title", { fg = colors.cyan, bold = true })
@@ -316,7 +313,7 @@ M.set = function(colors)
     hl("NeoTreeCursorLine", { bg = colors.bg_2 })
 
     -- indent-blankline
-    hl("IblIndent", { fg = colors.bg_2 })
+    hl("Indent", { fg = colors.bg_2 })
 end
 
 M.setup = function()
