@@ -4,6 +4,8 @@ local bind_default_opts = { bang = true }
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Swap buffers
 map("n", "<leader><Tab>", "<C-^>")
 
 -- nvim-neo-tree/neo-tree.nvim
@@ -28,6 +30,15 @@ map("n", "<leader>ph", telescope.help_tags)
 -- echasnovski/mini.nvim
 map("n", "<leader>d", require("mini.bufremove").delete)
 map("n", "gS", require("mini.splitjoin").toggle)
+
+-- Move lines up/down
+map("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+map("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+-- Better J behavior
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
 -- stevearc/conform.nvim
 map("n", "fr", function()

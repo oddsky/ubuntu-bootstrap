@@ -117,7 +117,7 @@ require("neo-tree").setup({
 })
 
 pak({ "https://github.com/echasnovski/mini.nvim" })
-require("mini.move").setup() -- Move any selection in any direction
+-- require("mini.move").setup() -- Move any selection in any direction
 require("mini.bufremove").setup() -- Remove buffers
 require("mini.comment").setup() -- Comment lines
 
