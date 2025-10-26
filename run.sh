@@ -3,10 +3,14 @@
 set -x
 set -a
 
-sudo apt install -y gnome-shell-extensions evolution-ews keepassxc wireshark \
-    alacritty python3-venv moreutils wl-clipboard podman podman-compose podman-docker \
-    golang-go postgresql-client bat curl fzf skopeo sshfs tmux npm ripgrep pipx \
-    network-manager-openconnect network-manager-openconnect-gnome ansible
+sudo usermod -aG video $USER
+
+sudo apt install -y alacritty ansible bat brightnessctl curl evolution-ews fuzzel \
+    fzf gnome-shell-extensions golang-go grim kanshi keepassxc mako-notifier \
+    moreutils network-manager-openconnect network-manager-openconnect-gnome npm \
+    pavucontrol pipx podman podman-compose podman-docker postgresql-client \
+    pulseaudio-utils python3-venv ripgrep skopeo slurp sshfs sway swayidle \
+    swaylock tmux waybar wireshark wl-clipboard
 
 sudo snap install pinta postman telegram-desktop
 sudo snap install --classic pycharm-community
@@ -40,12 +44,15 @@ if [ ! -f /usr/bin/ktalk ]; then
     sudo apt install -y /tmp/ktalk.deb
 fi
 
-
 if [ ! -f ~/.fonts/README.md ]; then
     wget \
         https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip \
         -O /tmp/JetBrainsMono.zip
     unzip /tmp/JetBrainsMono.zip -d ~/.fonts
+    wget \
+        https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip \
+        -O /tmp/DepartureMono.zip
+    unzip /tmp/DepartureMono.zip -d ~/.fonts
 fi
 
 if [ ! -d /opt/nvim ]; then
