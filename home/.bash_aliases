@@ -5,6 +5,8 @@ export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
 export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --style=minimal --color=bw'
 
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+
 # completions
 if [ ! -f /tmp/comp ]; then
     echo > /tmp/comp
