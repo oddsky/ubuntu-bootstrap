@@ -72,7 +72,6 @@ M.colors = {
     fg_1    =  hsl_to_hex_css_str("hsl(0   ,0%   ,80%)"),
 }
 -- stylua: ignore end
-
 M.set = function(colors)
     -- UI highlight
     hl("Normal", { fg = colors.fg_1 })
@@ -83,7 +82,7 @@ M.set = function(colors)
     hl("CursorLine", { bg = colors.bg_2 })
     hl("CursorColumn", { bg = colors.bg_2 })
     hl("Directory", { fg = colors.fg_1 })
-    hl("DiffAdd", { fg = colors.cyan })
+    hl("DiffAdd", { fg = colors.green })
     hl("DiffAdded", { link = "DiffAdd" })
     hl("DiffChange", { fg = colors.orange })
     hl("DiffDelete", { fg = colors.red })
