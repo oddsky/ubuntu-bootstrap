@@ -24,7 +24,7 @@ assign {
 
 exec_always {
     killall kanshi; kanshi
-    killall mako;   mako --default-timeout 10000 --width 400
+    killall mako;   mako
     killall waybar; waybar
 }
 
