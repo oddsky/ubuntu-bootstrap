@@ -10,7 +10,7 @@ sudo apt install -y alacritty ansible bat brightnessctl curl evolution-ews fuzze
     moreutils network-manager-openconnect network-manager-openconnect-gnome npm \
     pavucontrol pipx podman podman-compose podman-docker postgresql-client \
     pulseaudio-utils python3-venv ripgrep skopeo slurp sshfs sway swayidle \
-    swaylock tmux waybar wireshark wl-clipboard cliphist
+    swaylock tmux waybar wireshark wl-clipboard cliphist blueman
 
 sudo snap install pinta postman telegram-desktop
 sudo snap install --classic pycharm-community
