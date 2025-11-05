@@ -6,27 +6,15 @@ set -a
 sudo usermod -aG video $USER
 
 sudo apt install -y alacritty ansible bat brightnessctl curl evolution-ews fuzzel \
-    fzf gnome-shell-extensions golang-go grim kanshi keepassxc mako-notifier \
-    moreutils network-manager-openconnect network-manager-openconnect-gnome npm \
-    pavucontrol pipx podman podman-compose podman-docker postgresql-client \
+    fzf golang-go grim kanshi keepassxc mako-notifier moreutils postgresql-client \
+    network-manager-openconnect npm pavucontrol pipx podman podman-compose podman-docker \
     pulseaudio-utils python3-venv ripgrep skopeo slurp sshfs sway swayidle \
     swaylock tmux waybar wireshark wl-clipboard cliphist blueman
 
-sudo snap install pinta postman telegram-desktop
+sudo snap install postman telegram-desktop
 sudo snap install --classic pycharm-community
 
 pipx install tldr
-
-dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
-dconf write "/org/gnome/desktop/interface/enable-animations" "false"
-dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
-dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
-dconf write "/org/gnome/desktop/wm/keybindings/toggle-maximized" "['<Super>Up']"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
-dconf write "/org/gnome/shell/extensions/dash-to-dock/click-action" "'minimize'"
-dconf write "/org/gnome/shell/extensions/dash-to-dock/show-trash" "false"
-dconf write "/org/gnome/shell/window-switcher/app-icon-mode" "'app-icon-only'"
 
 for file in $(find $PWD/home); do
     RELNAME=$(echo $file | sed "s|$PWD/home/||g")
