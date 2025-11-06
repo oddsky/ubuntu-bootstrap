@@ -5,11 +5,12 @@ set -a
 
 sudo usermod -aG video $USER
 
-sudo apt install -y alacritty ansible bat brightnessctl curl evolution-ews fuzzel \
-    fzf golang-go grim kanshi keepassxc mako-notifier moreutils postgresql-client \
-    network-manager-openconnect npm pavucontrol pipx podman podman-compose podman-docker \
-    pulseaudio-utils python3-venv ripgrep skopeo slurp sshfs sway swayidle \
-    swaylock tmux waybar wireshark wl-clipboard cliphist blueman
+sudo apt install -y sway swayidle swaylock waybar fuzzel grim kanshi mako-notifier \
+    pavucontrol pulseaudio-utils slurp wl-clipboard cliphist blueman
+
+sudo apt install -y alacritty ansible bat brightnessctl curl evolution-ews fzf \
+    golang-go keepassxc moreutils postgresql-client npm pipx python3-venv ripgrep \
+    skopeo sshfs podman podman-compose podman-docker tmux wireshark
 
 sudo snap install postman telegram-desktop
 sudo snap install --classic pycharm-community
