@@ -38,10 +38,6 @@ if [ ! -f ~/.fonts/README.md ]; then
         https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip \
         -O /tmp/JetBrainsMono.zip
     unzip /tmp/JetBrainsMono.zip -d ~/.fonts
-    wget \
-        https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/DepartureMono.zip \
-        -O /tmp/DepartureMono.zip
-    unzip /tmp/DepartureMono.zip -d ~/.fonts
 fi
 
 if [ ! -d /opt/nvim ]; then

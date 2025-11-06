@@ -2,4 +2,4 @@ default-timeout=10000
 width=400
 height=200
 anchor=top-center
-border-size=1
+border-size=2
