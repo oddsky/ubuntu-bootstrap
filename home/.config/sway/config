@@ -48,7 +48,7 @@ input * {
 
 bindsym --to-code {
     # custom
-    Ctrl+Alt+h   exec cliphist list | fuzzel -d | cliphist decode | wl-copy
+    Alt+Ctrl+h   exec cliphist list | fuzzel -d | cliphist decode | wl-copy
     $mod+Shift+q kill
     $mod+d       exec fuzzel
     $mod+s       exec grim -g "$(slurp)" - | swappy -f -
