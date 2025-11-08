@@ -4,7 +4,7 @@ set $down j
 set $up k
 set $right l
 set $lock "swaylock -f -i ~/.config/sway/lockscreen.jpeg"
-font "JetBrainsMono Nerd Font 12"
+font "JetBrains Mono 12"
 
 output * background ~/.config/sway/wallpaper.jpeg fill
 floating_modifier $mod normal
@@ -17,9 +17,9 @@ for_window {
 }
 
 assign {
-    [app_id="firefox_firefox"] 1
-    [app_id="Alacritty"] 2
-    [app_id="telegram-desktop_telegram-desktop"] 3
+    [app_id="org.mozilla.firefox"] 1
+    [app_id="foot"] 2
+    [app_id="org.telegram.desktop"] 3
 }
 
 exec_always {
@@ -29,11 +29,14 @@ exec_always {
 }
 
 exec {
+    kanshi
+    mako
+    waybar
     wl-paste --watch cliphist store
     swayidle -w before-sleep '$lock'
-    alacritty
-    telegram-desktop
-    firefox
+    flatpak run org.telegram.desktop
+    flatpak run org.mozilla.firefox
+    foot
 }
 
 input type:touchpad {
@@ -106,36 +109,23 @@ bindsym --to-code {
 
 # modes
 set $resizemode "resizemode"
-set $powermode "(e)xit sway, (p)oweroff (l)ock"
-set $gapsmode "(e)nable (d)isable"
-
 mode $resizemode {
-    bindsym $left        resize shrink width  10px
-    bindsym $down        resize grow height   10px
-    bindsym $up          resize shrink height 10px
-    bindsym $right       resize grow width    10px
-    bindsym Shift+$left  resize shrink width  40px
-    bindsym Shift+$down  resize grow height   40px
-    bindsym Shift+$up    resize shrink height 40px
-    bindsym Shift+$right resize grow width    40px
-    bindsym Escape       mode "default"
+    bindsym $left  resize shrink width  10px
+    bindsym $down  resize grow height   10px
+    bindsym $up    resize shrink height 10px
+    bindsym $right resize grow width    10px
+    bindsym Escape mode "default"
 }
+bindsym $mod+0 mode $powermode
 
+set $powermode "(e)xit sway (r)eboot (p)oweroff (l)ock"
 mode $powermode {
     bindsym e      exec swaymsg exit,       mode "default"
     bindsym p      exec systemctl poweroff, mode "default"
     bindsym l      exec $lock,              mode "default"
+    bindsym r      exec systemctl reboot,   mode "default"
     bindsym Escape mode "default"
 }
-
-mode $gapsmode {
-    bindsym e gaps inner current set 50, mode "default"
-    bindsym d gaps inner current set 0,  mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+0 mode $powermode
 bindsym $mod+r mode $resizemode
-bindsym $mod+g mode $gapsmode
 
 include /etc/sway/config.d/*

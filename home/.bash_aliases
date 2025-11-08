@@ -4,8 +4,7 @@ export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
 export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --style=minimal --color=bw'
-
-export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+export SSH_AUTH_SOCK=/run/user/1000/openssh_agent
 
 # completions
 if [ ! -f /tmp/comp ]; then
@@ -18,6 +17,8 @@ source /tmp/comp
 complete -F __start_kubectl kl
 
 # aliases
+alias ll='ls -alh'
+alias vim='nvim'
 alias v='nvim'
 alias kl='kubectl'
 alias locconf="export KUBECONFIG=~/places/kubeconfigs/loc.conf"

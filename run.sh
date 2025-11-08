@@ -3,19 +3,20 @@
 set -x
 set -a
 
-sudo usermod -aG video $USER
+su - -c "apt install sudo && usermod -aG sudo rrossamakhin"
 
-sudo apt install -y sway swayidle swaylock waybar fuzzel grim kanshi mako-notifier \
-    pavucontrol pulseaudio-utils slurp wl-clipboard cliphist blueman
+sudo apt install -y \
+    sway swayidle swaylock waybar fuzzel grim kanshi mako-notifier pavucontrol \
+    pulseaudio-utils wl-clipboard cliphist blueman brightnessctl slurp ansible \
+    ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx unzip \
+    curl skopeo podman-docker podman-compose tmux wireshark htop xwayland \
+    fonts-jetbrains-mono font-noto
 
-sudo apt install -y alacritty ansible bat brightnessctl curl evolution-ews fzf \
-    golang-go keepassxc moreutils postgresql-client npm pipx python3-venv ripgrep \
-    skopeo sshfs podman podman-compose podman-docker tmux wireshark
-
-sudo snap install postman telegram-desktop
-sudo snap install --classic pycharm-community
-
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install -y flathub org.mozilla.firefox org.telegram.desktop
 pipx install tldr
+systemctl --user enable --now pulseaudio.service ssh-agent.service
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 for file in $(find $PWD/home); do
     RELNAME=$(echo $file | sed "s|$PWD/home/||g")
@@ -27,35 +28,26 @@ for file in $(find $PWD/home); do
 done
 
 if [ ! -f /usr/bin/ktalk ]; then
-    wget \
-        https://st.ktalk.host/ktalk-app/linux/ktalk3.1.0amd64.deb \
-        -O /tmp/ktalk.deb
+    URL="https://st.ktalk.host/ktalk-app/linux/ktalk3.1.0amd64.deb"
+    wget "$URL" -O /tmp/ktalk.deb
     sudo apt install -y /tmp/ktalk.deb
 fi
 
-if [ ! -f ~/.fonts/README.md ]; then
-    wget \
-        https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip \
-        -O /tmp/JetBrainsMono.zip
-    unzip /tmp/JetBrainsMono.zip -d ~/.fonts
-fi
-
 if [ ! -d /opt/nvim ]; then
-    wget \
-        https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz \
-        -O /tmp/nvim-linux-x86_64.tar.gz
+    URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz"
+    wget "$URL" -O /tmp/nvim.tar.gz
     sudo mkdir /opt/nvim
-    sudo tar xzvf /tmp/nvim-linux-x86_64.tar.gz -C /opt/nvim
+    sudo tar xzvf /tmp/nvim.tar.gz -C /opt/nvim
     sudo ln -sf /opt/nvim/nvim-linux-x86_64/bin/nvim /usr/bin/nvim
 fi
 
 if [ ! -d /opt/pytimesched ]; then
-    wget \
-        https://gitlab.com/ilmenshik/pytimesched/-/jobs/3568673400/artifacts/raw/pyTimeSched-v0.6-linux.tar.gz \
-        -O /tmp/pyTimeSched.tar.gz
+    URL="https://gitlab.com/ilmenshik/pytimesched/-/jobs/3568673400/artifacts/raw/pyTimeSched-v0.6-linux.tar.gz"
+    wget "$URL" -O /tmp/pyTimeSched.tar.gz
     sudo mkdir /opt/pytimesched
     sudo tar xzvf /tmp/pyTimeSched.tar.gz -C /opt/pytimesched
     sudo chown -R $USER:$USER /opt/pytimesched
+    mkdir -p ~/.local/share/applications/
     cat << EOF | sed 's/^[[:space:]]*//' > ~/.local/share/applications/pyTimeSched.desktop
         [Desktop Entry]
         Version=1.0
