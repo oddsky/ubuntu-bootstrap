@@ -118,12 +118,13 @@ mode $resizemode {
 }
 bindsym $mod+0 mode $powermode
 
-set $powermode "(e)xit sway (r)eboot (p)oweroff (l)ock"
+set $powermode "(e)xit sway (l)ock (s)uspend (r)eboot (p)oweroff"
 mode $powermode {
     bindsym e      exec swaymsg exit,       mode "default"
-    bindsym p      exec systemctl poweroff, mode "default"
     bindsym l      exec $lock,              mode "default"
+    bindsym s      exec systemctl suspend,  mode "default"
     bindsym r      exec systemctl reboot,   mode "default"
+    bindsym p      exec systemctl poweroff, mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode $resizemode
