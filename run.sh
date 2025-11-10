@@ -9,12 +9,18 @@ sudo apt install -y \
     pavucontrol pulseaudio-utils wl-clipboard cliphist grim brightnessctl kanshi \
     ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx zip unzip \
     skopeo curl podman-docker podman-compose tmux wireshark htop xwayland unzip ansible \
-    fonts-jetbrains-mono
+    fonts-jetbrains-mono gnome-calculator
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install -y flathub org.mozilla.firefox org.telegram.desktop
+sudo flatpak install -y flathub \
+    org.mozilla.firefox \
+    org.telegram.desktop
+
+systemctl --user enable --now \
+    pulseaudio.service \
+    ssh-agent.service
+
 pipx install tldr
-systemctl --user enable --now pulseaudio.service ssh-agent.service
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 for file in $(find $PWD/home); do
@@ -61,11 +67,9 @@ fi
 CONTAINER="arch-tools"
 TOOLS="kubectl helm helmfile sops k9s dive uv"
 
-if ! podman container exists $CONTAINER; then
-    podman run --name $CONTAINER archlinux:latest pacman -Sy --noconfirm --needed -dd $TOOLS
-else
-    podman start -ai $CONTAINER
-fi
+podman container exists $CONTAINER \
+    && podman start -ai $CONTAINER \
+    || podman run --name $CONTAINER archlinux:latest pacman -Sy --noconfirm --needed -dd $TOOLS
 
 for tool in $TOOLS; do
     podman cp $CONTAINER:/usr/bin/$tool ~/.bin
