@@ -66,6 +66,7 @@ fi
 
 CONTAINER="arch-tools"
 TOOLS="kubectl helm helmfile sops k9s dive uv"
+mkdir ~/.bin
 
 podman container exists $CONTAINER \
     && podman start -ai $CONTAINER \
