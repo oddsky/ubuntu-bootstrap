@@ -7,9 +7,9 @@ su - -c "apt install sudo && usermod -aG sudo rrossamakhin"
 sudo apt install -y \
     sway swayidle swaylock waybar fuzzel grim slurp mako-notifier swappy blueman \
     pavucontrol pulseaudio-utils wl-clipboard cliphist grim brightnessctl kanshi \
-    ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx skopeo  \
-    curl podman-docker podman-compose tmux wireshark htop xwayland unzip ansible \
-    fonts-jetbrains-mono fonts-noto
+    ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx zip unzip \
+    skopeo curl podman-docker podman-compose tmux wireshark htop xwayland unzip ansible \
+    fonts-jetbrains-mono
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y flathub org.mozilla.firefox org.telegram.desktop
