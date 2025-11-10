@@ -1,7 +1,6 @@
 #!/bin/bash
 
-set -x
-set -a
+set -xe
 
 su - -c "apt install sudo && usermod -aG sudo rrossamakhin"
 
@@ -10,7 +9,7 @@ sudo apt install -y \
     pulseaudio-utils wl-clipboard cliphist blueman brightnessctl slurp ansible \
     ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx unzip \
     curl skopeo podman-docker podman-compose tmux wireshark htop xwayland \
-    fonts-jetbrains-mono font-noto
+    fonts-jetbrains-mono fonts-noto
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y flathub org.mozilla.firefox org.telegram.desktop
@@ -60,7 +59,7 @@ EOF
 fi
 
 CONTAINER="arch-tools"
-TOOLS="kubectl helm helmfile sops k9s dive uv"
+TOOLS="kubectl helm helmfile sops k9s dive uv yazi nnn"
 
 if ! podman container exists $CONTAINER; then
     podman run --name $CONTAINER archlinux:latest pacman -Sy --noconfirm --needed -dd $TOOLS
