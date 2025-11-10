@@ -5,10 +5,10 @@ set -xe
 su - -c "apt install sudo && usermod -aG sudo rrossamakhin"
 
 sudo apt install -y \
-    sway swayidle swaylock waybar fuzzel grim kanshi mako-notifier pavucontrol \
-    pulseaudio-utils wl-clipboard cliphist blueman brightnessctl slurp ansible \
-    ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx unzip \
-    curl skopeo podman-docker podman-compose tmux wireshark htop xwayland \
+    sway swayidle swaylock waybar fuzzel grim slurp mako-notifier swappy blueman \
+    pavucontrol pulseaudio-utils wl-clipboard cliphist grim brightnessctl kanshi \
+    ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx skopeo  \
+    curl podman-docker podman-compose tmux wireshark htop xwayland unzip ansible \
     fonts-jetbrains-mono fonts-noto
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -59,7 +59,7 @@ EOF
 fi
 
 CONTAINER="arch-tools"
-TOOLS="kubectl helm helmfile sops k9s dive uv yazi nnn"
+TOOLS="kubectl helm helmfile sops k9s dive uv nnn"
 
 if ! podman container exists $CONTAINER; then
     podman run --name $CONTAINER archlinux:latest pacman -Sy --noconfirm --needed -dd $TOOLS
