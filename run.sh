@@ -12,25 +12,13 @@ sudo apt install -y \
     fonts-jetbrains-mono gnome-calculator
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install -y flathub \
-    org.mozilla.firefox \
-    org.telegram.desktop
-
-systemctl --user enable --now \
-    pulseaudio.service \
-    ssh-agent.service
-
+sudo flatpak install -y flathub org.mozilla.firefox org.telegram.desktop
+systemctl --user enable --now pulseaudio.service ssh-agent.service
 pipx install tldr
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-for file in $(find $PWD/home); do
-    RELNAME=$(echo $file | sed "s|$PWD/home/||g")
-    if [ -d $file ]; then
-        mkdir -p ~/$RELNAME
-    else
-        ln -sf $file ~/$RELNAME
-    fi
-done
+find -not -path '*.git/*' -type d | xargs --verbose -I{} mkdir -p ~/{}
+find -not -path '*.git/*' -type f | xargs --verbose -I{} ln -sfr {} ~/{}
 
 if [ ! -f /usr/bin/ktalk ]; then
     URL="https://st.ktalk.host/ktalk-app/linux/ktalk3.1.0amd64.deb"
@@ -64,15 +52,9 @@ if [ ! -d /opt/pytimesched ]; then
 EOF
 fi
 
-CONTAINER="arch-tools"
-TOOLS="kubectl helm helmfile sops k9s dive uv"
-mkdir ~/.bin
-
-podman container exists $CONTAINER \
-    && podman start -ai $CONTAINER \
-    || podman run --name $CONTAINER archlinux:latest pacman -Sy --noconfirm --needed -dd $TOOLS
-
-for tool in $TOOLS; do
-    podman cp $CONTAINER:/usr/bin/$tool ~/.bin
-    sudo ln -sf ~/.bin/$tool /usr/bin/$tool
-done
+NAME="arch-tools"
+PACKAGE="kubectl helm helmfile sops k9s dive uv"
+podman container exists $NAME \
+    && podman start -ai $NAME \
+    || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
+tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin

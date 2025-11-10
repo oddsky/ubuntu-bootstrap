@@ -14,7 +14,7 @@ LIST=$(
     }
 )
 
-RESULT=$(fzf $FZF_OPTS <<<"$LIST") || exit
+RESULT=$(fzf $FZF_OPTS <<<$LIST) || exit
 
 if [[ $RESULT == "/"* ]]; then
     SEL=$(basename "$RESULT" | tr "[:upper:]:. " "[:lower:]---")
