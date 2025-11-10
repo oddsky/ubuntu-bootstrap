@@ -59,7 +59,7 @@ EOF
 fi
 
 CONTAINER="arch-tools"
-TOOLS="kubectl helm helmfile sops k9s dive uv nnn"
+TOOLS="kubectl helm helmfile sops k9s dive uv"
 
 if ! podman container exists $CONTAINER; then
     podman run --name $CONTAINER archlinux:latest pacman -Sy --noconfirm --needed -dd $TOOLS
