@@ -1,3 +1,7 @@
+if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
+    exec sway --verbose >> ~/.sway.log 2>&1
+fi
+
 export PS1=' \[\e[34;1m\]\W\[\e[0m\] ❱ '
 export EDITOR="/usr/bin/nvim"
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"

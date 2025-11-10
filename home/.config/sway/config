@@ -3,7 +3,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $lock "swaylock -f -i ~/.config/sway/lockscreen.jpeg"
+set $swaylock "swaylock -i ~/.config/sway/lockscreen.jpeg"
 font "JetBrains Mono 12"
 
 output * background ~/.config/sway/wallpaper.jpeg fill
@@ -30,12 +30,10 @@ exec_always {
 
 exec {
     kanshi
-    mako
     waybar
+    mako
+    swayidle -w before-sleep $swaylock
     wl-paste --watch cliphist store
-    swayidle -w before-sleep '$lock'
-    flatpak run org.telegram.desktop
-    flatpak run org.mozilla.firefox
     foot
 }
 
@@ -119,7 +117,7 @@ bindsym $mod+0 mode $powermode
 set $powermode "(e)xit sway (l)ock (s)uspend (r)eboot (p)oweroff"
 mode $powermode {
     bindsym e      exec swaymsg exit,       mode "default"
-    bindsym l      exec $lock,              mode "default"
+    bindsym l      exec $swaylock,          mode "default"
     bindsym s      exec systemctl suspend,  mode "default"
     bindsym r      exec systemctl reboot,   mode "default"
     bindsym p      exec systemctl poweroff, mode "default"
