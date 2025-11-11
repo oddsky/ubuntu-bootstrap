@@ -10,7 +10,8 @@ LIST=$(
             $HOME/.config \
             $HOME/places/git/personal \
             $HOME/places/git/work \
-            -maxdepth 1 -type d
+            $HOME/places/git/work/launchpad \
+            -maxdepth 1 -type d 2> /dev/null
     }
 )
 

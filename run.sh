@@ -2,23 +2,29 @@
 
 set -xe
 
-su - -c "apt install sudo && usermod -aG sudo rrossamakhin"
-
 sudo apt install -y \
-    sway swayidle swaylock waybar fuzzel grim slurp mako-notifier swappy blueman \
-    pavucontrol pulseaudio-utils wl-clipboard cliphist grim brightnessctl kanshi \
-    ripgrep bat evolution-ews fzf golang-go keepassxc moreutils npm pipx zip unzip \
-    skopeo curl podman-docker podman-compose tmux wireshark htop xwayland unzip ansible \
-    fonts-jetbrains-mono gnome-calculator
+    curl alacritty wl-clipboard ripgrep evolution-ews fzf golang-go keepassxc moreutils \
+    npm pipx podman-docker podman-compose tmux wireshark ansible fonts-jetbrains-mono \
+    network-manager-openconnect-gnome
 
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install -y flathub org.mozilla.firefox org.telegram.desktop
-systemctl --user enable --now pulseaudio.service ssh-agent.service
+sudo snap install pinta telegram-desktop
+sudo snap install --classic pycharm-community
+
 pipx install tldr
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
+dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
+dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
+dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
+dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 
 find -not -path '*.git/*' -type d | xargs --verbose -I{} mkdir -p ~/{}
 find -not -path '*.git/*' -type f | xargs --verbose -I{} ln -sfr {} ~/{}
+
+if [ ! -f ~/.fonts/README.md ]; then
+    URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
+    wget "$URL" -O /tmp/JetBrainsMono.zip
+    unzip /tmp/JetBrainsMono.zip -d ~/.fonts
 
 if [ ! -f /usr/bin/ktalk ]; then
     URL="https://st.ktalk.host/ktalk-app/linux/ktalk3.1.0amd64.deb"
@@ -31,7 +37,7 @@ if [ ! -d /opt/nvim ]; then
     wget "$URL" -O /tmp/nvim.tar.gz
     sudo mkdir /opt/nvim
     sudo tar xzvf /tmp/nvim.tar.gz -C /opt/nvim
-    sudo ln -sf /opt/nvim/nvim-linux-x86_64/bin/nvim /usr/bin/nvim
+    sudo ln -sfr /opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 fi
 
 if [ ! -d /opt/pytimesched ]; then
@@ -53,7 +59,7 @@ EOF
 fi
 
 NAME="arch-tools"
-PACKAGE="kubectl helm helmfile sops k9s dive uv"
+PACKAGE="kubectl helm helmfile sops k9s dive uv skopeo"
 podman container exists $NAME \
     && podman start -ai $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
