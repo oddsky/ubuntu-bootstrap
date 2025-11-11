@@ -5,7 +5,7 @@ set -xe
 sudo apt install -y \
     curl alacritty wl-clipboard ripgrep evolution-ews fzf golang-go keepassxc moreutils \
     npm pipx podman-docker podman-compose tmux wireshark ansible fonts-jetbrains-mono \
-    network-manager-openconnect-gnome
+    network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
 sudo snap install --classic pycharm-community
