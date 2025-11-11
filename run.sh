@@ -1,16 +1,14 @@
-#!/bin/bash
-
-set -xe
+#!/bin/env bash -xe
 
 sudo apt install -y \
-    evolution-ews wl-clipboard alacritty keepassxc ripgrep \
-    ansible podman-docker golang-go npm fzf curl pipx tmux \
-    network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector
+    network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
+    evolution-ews wl-clipboard alacritty keepassxc podman-docker golang-go ripgrep \
+    fzf npm pipx curl tmux
 
 sudo snap install pinta telegram-desktop
 sudo snap install --classic pycharm-community
 
-pipx install tldr
+pipx install ansible-core tldr
 
 dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
 dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
