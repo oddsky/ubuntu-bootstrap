@@ -26,6 +26,7 @@ if [ ! -f ~/.fonts/README.md ]; then
     URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
     wget "$URL" -O /tmp/JetBrainsMono.zip
     unzip /tmp/JetBrainsMono.zip -d ~/.fonts
+fi
 
 if [ ! -f /usr/bin/ktalk ]; then
     URL="https://st.ktalk.host/ktalk-app/linux/ktalk3.1.0amd64.deb"
