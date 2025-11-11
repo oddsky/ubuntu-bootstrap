@@ -104,13 +104,27 @@ pak({
 })
 
 require("neo-tree").setup({
+    commands = {
+        system_open = function(state)
+            local path = state.tree:get_node():get_id()
+            vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+        end,
+    },
     filesystem = {
+        window = {
+            mappings = {
+                ["o"] = "system_open",
+            },
+        },
         filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_by_name = { ".git" },
+            always_show_by_pattern = { ".env*" },
             always_show = {
-                ".env",
+                ".dockerignore",
                 ".gitignore",
                 ".helmignore",
-                ".dockerignore",
             },
         },
     },

@@ -19,13 +19,15 @@ map("n", "gb", ":Gitsigns blame_line<CR>")
 map("n", "dz", ":Gitsigns diffthis<CR>")
 
 -- nvim-telescope/telescope.nvim
-local telescope = require("telescope.builtin")
-map("n", "<leader>pf", telescope.find_files)
-map("n", "<leader>pg", telescope.live_grep)
-map("n", "<leader>pd", telescope.diagnostics)
-map("n", "<leader>pc", telescope.current_buffer_fuzzy_find)
-map("n", "<leader>pb", telescope.buffers)
-map("n", "<leader>ph", telescope.help_tags)
+local builtin = require("telescope.builtin")
+map("n", "<leader>pf", function()
+    builtin.find_files({ hidden = true })
+end)
+map("n", "<leader>pg", builtin.live_grep)
+map("n", "<leader>pd", builtin.diagnostics)
+map("n", "<leader>pc", builtin.current_buffer_fuzzy_find)
+map("n", "<leader>pb", builtin.buffers)
+map("n", "<leader>ph", builtin.help_tags)
 
 -- echasnovski/mini.nvim
 map("n", "<leader>d", require("mini.bufremove").delete)

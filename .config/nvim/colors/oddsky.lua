@@ -74,7 +74,7 @@ M.colors = {
 -- stylua: ignore end
 M.set = function(colors)
     -- UI highlight
-    hl("Normal", { fg = colors.fg_1 })
+    hl("Normal", { fg = colors.fg_1, bg = colors.bg_1 })
     hl("NormalFloat", { fg = colors.fg_1 })
     hl("FloatBorder", { fg = colors.fg_3 })
     hl("ColorColumn", { bg = colors.bg_2 })
