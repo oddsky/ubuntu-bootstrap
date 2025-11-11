@@ -17,6 +17,7 @@ dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shif
 dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
+dconf write "/org/gnome/shell/extensions/dash-to-dock/click-action" "'minimize'"
 
 find -not -path '*.git/*' -type d | xargs --verbose -I{} mkdir -p ~/{}
 find -not -path '*.git/*' -type f | xargs --verbose -I{} ln -sfr {} ~/{}
