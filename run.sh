@@ -3,8 +3,8 @@
 set -xe
 
 sudo apt install -y \
-    curl alacritty wl-clipboard ripgrep evolution-ews fzf golang-go keepassxc moreutils \
-    npm pipx podman-docker podman-compose tmux wireshark ansible fonts-jetbrains-mono \
+    evolution-ews wl-clipboard alacritty keepassxc ripgrep \
+    ansible podman-docker golang-go npm fzf curl pipx tmux \
     network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
