@@ -1,5 +1,5 @@
 export PS1=' \[\e[34;1m\]\W\[\e[0m\] ❱ '
-export EDITOR="/usr/bin/nvim"
+export EDITOR="nvim"
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
