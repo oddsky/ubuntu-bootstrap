@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("oddsky_day")
+vim.cmd.colorscheme("oddsky")
 
 vim.opt.spell = false
 vim.opt.cursorline = true -- Highlight current line

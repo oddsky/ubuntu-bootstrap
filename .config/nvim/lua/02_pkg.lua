@@ -4,7 +4,6 @@ pak({
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/armyers/Vim-Jinja2-Syntax",
     "https://github.com/lewis6991/gitsigns.nvim",
-    "https://github.com/nvim-telescope/telescope.nvim",
     "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/maxmx03/solarized.nvim",
 })
@@ -131,9 +130,33 @@ require("neo-tree").setup({
 })
 
 pak({ "https://github.com/echasnovski/mini.nvim" })
--- require("mini.move").setup() -- Move any selection in any direction
+require("mini.move").setup() -- Move any selection in any direction
 require("mini.bufremove").setup() -- Remove buffers
 require("mini.comment").setup() -- Comment lines
 
 pak({ "https://github.com/kylechui/nvim-surround" })
 require("nvim-surround").setup({})
+
+pak({ "https://github.com/ibhagwan/fzf-lua" })
+require("fzf-lua").setup({
+    fzf_colors = true,
+    files = {
+        formatter = "path.filename_first",
+        cwd_prompt = false,
+        hidden = true,
+        follow = true,
+        no_ignore = true,
+    },
+    grep = {
+        -- Дефолтный hidden включал также поиск по .git, пришлось руками собирать параметры
+        rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --follow --hidden --no-ignore --glob="!{.git,secrets/**}" -e]],
+    },
+    winopts = {
+        border = "single",
+        fullscreen = true,
+        preview = {
+            border = "single",
+            scrollbar = false,
+        },
+    },
+})

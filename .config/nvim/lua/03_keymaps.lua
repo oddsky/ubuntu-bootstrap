@@ -18,29 +18,19 @@ map("n", "<leader>Q", ":Neotree right reveal<CR>")
 map("n", "gb", ":Gitsigns blame_line<CR>")
 map("n", "dz", ":Gitsigns diffthis<CR>")
 
--- nvim-telescope/telescope.nvim
-local builtin = require("telescope.builtin")
-map("n", "<leader>pf", function()
-    builtin.find_files({
-        hidden = true,
-        follow = true,
-    })
-end)
-map("n", "<leader>pg", builtin.live_grep)
-map("n", "<leader>pd", builtin.diagnostics)
-map("n", "<leader>pc", builtin.current_buffer_fuzzy_find)
-map("n", "<leader>pb", builtin.buffers)
-map("n", "<leader>ph", builtin.help_tags)
+-- ibhagwan/fzf-lua
+map("n", "<leader>pf", ":FzfLua files<CR>")
+map("n", "<leader>pg", ":FzfLua live_grep_native<CR>")
+map("n", "<leader>pd", ":FzfLua diagnostics_workspace<CR>")
+map("n", "<leader>pb", ":FzfLua buffers<CR>")
+map("n", "<leader>ph", ":FzfLua helptags<CR>")
+map("n", "<leader>pc", ":FzfLua grep_cword<CR>")
+map("n", "<leader>r", ":FzfLua resume<CR>")
+map("n", "<leader>pp", ":FzfLua<CR>")
 
 -- echasnovski/mini.nvim
 map("n", "<leader>d", require("mini.bufremove").delete)
 map("n", "gS", require("mini.splitjoin").toggle)
-
--- Move lines up/down
-map("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-map("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
@@ -69,7 +59,7 @@ map("n", "<leader>4", jump(4))
 -- custom
 map("n", "<leader>D", ":tabclose<CR>")
 map("n", "<leader>g", ":tab G<CR>")
-map("n", "<leader>0", ":e ~/places/git/personal/second-brain/scratch.md<cr>")
+map("n", "<leader>0", ":e ~/places/git/personal/second-brain/scratch.md<CR>")
 bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md", bind_default_opts)
 bind("W", "w", bind_default_opts)
 bind("Q", "q", bind_default_opts)
