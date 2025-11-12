@@ -11,9 +11,8 @@ vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 
 vim.opt.winborder = "single"
 vim.opt.cmdheight = 0 -- Command line height
-vim.opt.laststatus = 2
-vim.opt.statusline = " %f %m %= %l:%v"
-vim.opt.cmdwinheight = 10
+-- vim.opt.statusline = " %f %m %= %l:%v"
+vim.opt.cmdwinheight = 20
 
 -- search
 vim.opt.ignorecase = true -- Case insensitive search

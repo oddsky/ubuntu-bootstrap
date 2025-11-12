@@ -21,7 +21,10 @@ map("n", "dz", ":Gitsigns diffthis<CR>")
 -- nvim-telescope/telescope.nvim
 local builtin = require("telescope.builtin")
 map("n", "<leader>pf", function()
-    builtin.find_files({ hidden = true })
+    builtin.find_files({
+        hidden = true,
+        follow = true,
+    })
 end)
 map("n", "<leader>pg", builtin.live_grep)
 map("n", "<leader>pd", builtin.diagnostics)

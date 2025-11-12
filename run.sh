@@ -1,4 +1,4 @@
-#!/bin/env bash -xe
+#!/bin/bash -xe
 
 sudo apt install -y \
     network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
