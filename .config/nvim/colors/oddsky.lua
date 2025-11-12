@@ -285,7 +285,7 @@ M.set = function(colors)
     hl("TelescopeNormal", { fg = colors.fg_1 })
     hl("TelescopeSelection", { fg = colors.fg_1, bg = colors.bg_2 })
     hl("TelescopeMultiSelection", { fg = colors.fg_1 })
-    hl("TelescopeMatching", { fg = colors.fg_1, bold = true })
+    hl("TelescopeMatching", { fg = colors.green })
     hl("TelescopePromptPrefix", { fg = colors.fg_1, bold = true })
 
     hl("LspReferenceText", { bg = colors.search })
