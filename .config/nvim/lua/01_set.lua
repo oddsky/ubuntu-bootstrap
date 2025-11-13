@@ -62,15 +62,27 @@ vim.opt.foldlevel = 99 -- Start with all folds open
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set local leader key (NEW)
 
--- Basic autocommands
-local augroup = vim.api.nvim_create_augroup("UserConfig", {})
-
--- Highlight when yanking text
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = augroup,
+    desc = "Highlight when yanking text",
     callback = function()
         vim.highlight.on_yank()
     end,
+})
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+    desc = "Don't hide the status line when typing a command",
+    command = ":set cmdheight=1",
+})
+
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+    desc = "Hide cmdline when not typing a command",
+    command = ":set cmdheight=0",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+    desc = "Get rid of message after writing a file",
+    pattern = { "*" },
+    command = "redrawstatus",
 })
 
 vim.filetype.add({
