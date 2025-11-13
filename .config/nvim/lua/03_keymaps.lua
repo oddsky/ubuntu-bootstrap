@@ -9,24 +9,24 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 map("n", "<leader><Tab>", "<C-^>")
 
 -- nvim-neo-tree/neo-tree.nvim
-map("n", "<leader>e", ":Neotree float toggle<CR>")
-map("n", "<leader>E", ":Neotree float reveal<CR>")
-map("n", "<leader>q", ":Neotree right toggle<CR>")
-map("n", "<leader>Q", ":Neotree right reveal<CR>")
+map("n", "<leader>e", "<CMD>Neotree float toggle<CR>")
+map("n", "<leader>E", "<CMD>Neotree float reveal<CR>")
+map("n", "<leader>q", "<CMD>Neotree right toggle<CR>")
+map("n", "<leader>Q", "<CMD>Neotree right reveal<CR>")
 
 -- lewis6991/gitsigns.nvim
-map("n", "gb", ":Gitsigns blame_line<CR>")
-map("n", "dz", ":Gitsigns diffthis<CR>")
+map("n", "gb", "<CMD>Gitsigns blame_line<CR>")
+map("n", "dz", "<CMD>Gitsigns diffthis<CR>")
 
 -- ibhagwan/fzf-lua
-map("n", "<leader>pf", ":FzfLua files<CR>")
-map("n", "<leader>pg", ":FzfLua live_grep_native<CR>")
-map("n", "<leader>pd", ":FzfLua diagnostics_workspace<CR>")
-map("n", "<leader>pb", ":FzfLua buffers<CR>")
-map("n", "<leader>ph", ":FzfLua helptags<CR>")
-map("n", "<leader>pc", ":FzfLua grep_cword<CR>")
-map("n", "<leader>r", ":FzfLua resume<CR>")
-map("n", "<leader>pp", ":FzfLua<CR>")
+map("n", "<leader>pf", "<CMD>FzfLua files<CR>")
+map("n", "<leader>pg", "<CMD>FzfLua live_grep_native<CR>")
+map("n", "<leader>pd", "<CMD>FzfLua diagnostics_workspace<CR>")
+map("n", "<leader>pb", "<CMD>FzfLua buffers<CR>")
+map("n", "<leader>ph", "<CMD>FzfLua helptags<CR>")
+map("n", "<leader>pc", "<CMD>FzfLua grep_cword<CR>")
+map("n", "<leader>r", "<CMD>FzfLua resume<CR>")
+map("n", "<leader>pp", "<CMD>FzfLua<CR>")
 
 -- echasnovski/mini.nvim
 map("n", "<leader>d", require("mini.bufremove").delete)
@@ -57,9 +57,9 @@ map("n", "<leader>3", jump(3))
 map("n", "<leader>4", jump(4))
 
 -- custom
-map("n", "<leader>D", ":tabclose<CR>")
-map("n", "<leader>g", ":tab G<CR>")
-map("n", "<leader>0", ":e ~/places/git/personal/second-brain/scratch.md<CR>")
+map("n", "<leader>D", "<CMD>tabclose<CR>")
+map("n", "<leader>g", "<CMD>tab G<CR>")
+map("n", "<leader>0", "<CMD>e ~/places/git/personal/second-brain/scratch.md<CR>")
 bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md", bind_default_opts)
 bind("W", "w", bind_default_opts)
 bind("Q", "q", bind_default_opts)

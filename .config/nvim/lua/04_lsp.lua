@@ -8,14 +8,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
     callback = function(event)
         local opts = { buffer = event.buf }
-        vim.keymap.set("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
-        vim.keymap.set("n", "gd", ":FzfLua lsp_definitions<CR>", opts)
-        vim.keymap.set("n", "gi", ":FzfLua lsp_implementations<CR>", opts)
-        vim.keymap.set("n", "gt", ":FzfLua lsp_typedefs<CR>", opts)
-        vim.keymap.set("n", "gr", ":FzfLua lsp_references<CR>", opts)
-        vim.keymap.set("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts)
-        vim.keymap.set("n", "<F2>", ":lua vim.lsp.buf.rename()<CR>", opts)
-        vim.keymap.set("n", "<F4>", ":FzfLua lsp_code_actions<CR>", opts)
+        vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
+        vim.keymap.set("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", opts)
+        vim.keymap.set("n", "gi", "<CMD>FzfLua lsp_implementations<CR>", opts)
+        vim.keymap.set("n", "gt", "<CMD>FzfLua lsp_typedefs<CR>", opts)
+        vim.keymap.set("n", "gr", "<CMD>FzfLua lsp_references<CR>", opts)
+        vim.keymap.set("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
+        vim.keymap.set("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
+        vim.keymap.set("n", "<F4>", "<CMD>FzfLua lsp_code_actions<CR>", opts)
     end,
 })
 
