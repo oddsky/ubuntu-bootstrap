@@ -8,7 +8,8 @@ sudo apt install -y \
 sudo snap install pinta telegram-desktop
 sudo snap install --classic pycharm-community
 
-pipx install ansible-core tldr
+pipx install ansible ansible-core tldr
+ansible-galaxy collection install ansible.posix community.general
 
 dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
 dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
