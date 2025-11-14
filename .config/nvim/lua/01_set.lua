@@ -69,22 +69,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-    desc = "Don't hide the status line when typing a command",
-    command = ":set cmdheight=1",
-})
-
-vim.api.nvim_create_autocmd("CmdlineLeave", {
-    desc = "Hide cmdline when not typing a command",
-    command = ":set cmdheight=0",
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-    desc = "Get rid of message after writing a file",
-    pattern = { "*" },
-    command = "redrawstatus",
-})
-
 vim.filetype.add({
     pattern = {
         [".*/templates/.*%.tpl"] = "helm",
