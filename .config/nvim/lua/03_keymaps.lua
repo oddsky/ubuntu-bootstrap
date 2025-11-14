@@ -9,10 +9,8 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 map("n", "<leader><Tab>", "<C-^>")
 
 -- nvim-neo-tree/neo-tree.nvim
-map("n", "<leader>e", "<CMD>Neotree float toggle<CR>")
-map("n", "<leader>E", "<CMD>Neotree float reveal<CR>")
-map("n", "<leader>q", "<CMD>Neotree right toggle<CR>")
-map("n", "<leader>Q", "<CMD>Neotree right reveal<CR>")
+map("n", "<leader>e", "<CMD>Neotree float toggle reveal<CR>")
+map("n", "<leader>q", "<CMD>Neotree right toggle reveal<CR>")
 
 -- lewis6991/gitsigns.nvim
 map("n", "gb", "<CMD>Gitsigns blame_line<CR>")
@@ -60,12 +58,15 @@ map("n", "<leader>4", jump(4))
 map("n", "<leader>D", "<CMD>tabclose<CR>")
 map("n", "<leader>g", "<CMD>tab G<CR>")
 map("n", "<leader>0", "<CMD>e ~/places/git/personal/second-brain/scratch.md<CR>")
+
 bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md", bind_default_opts)
 bind("W", "w", bind_default_opts)
 bind("Q", "q", bind_default_opts)
 bind("X", "x", bind_default_opts)
-bind("Gb", "G branch -vv", bind_default_opts)
+
+bind("Gb", "G branch -a -vvv", bind_default_opts)
+bind("Gp", "G push", bind_default_opts)
+bind("Gfe", "G fetch origin", bind_default_opts)
 bind("Gca", "G commit --amend", bind_default_opts)
 bind("Grm", "G rebase master", bind_default_opts)
-bind("Gp", "G push", bind_default_opts)
 bind("Gpf", "G push --force", bind_default_opts)

@@ -6,5 +6,6 @@
 [push]
 	autoSetupRemote = true
 [alias]
-	llog = log --all --decorate --oneline --graph
-	bbranch = branch -a -vvv
+	alog = log --oneline --all --graph
+    llog = log --oneline
+	bb = branch -a -vvv
