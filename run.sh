@@ -18,8 +18,8 @@ dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 dconf write "/org/gnome/shell/extensions/dash-to-dock/click-action" "'minimize'"
 
-find -not -path '*.git/*' -type d | xargs --verbose -I{} mkdir -p ~/{}
-find -not -path '*.git/*' -type f | xargs --verbose -I{} ln -sfr {} ~/{}
+find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
+find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
 
 if [ ! -f ~/.fonts/README.md ]; then
     URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
