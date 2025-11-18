@@ -55,20 +55,22 @@ end
 
 -- stylua: ignore start
 M.colors = {
-    red     =  hsl_to_hex_css_str("hsl(0   ,82%  ,70%)"),
-    orange  =  hsl_to_hex_css_str("hsl(25  ,79%  ,70%)"),
-    yellow  =  hsl_to_hex_css_str("hsl(50  ,59%  ,60%)"),
-    green   =  hsl_to_hex_css_str("hsl(120 ,32%  ,60%)"),
-    cyan    =  hsl_to_hex_css_str("hsl(185 ,27%  ,55%)"),
-    blue    =  hsl_to_hex_css_str("hsl(230 ,70%  ,70%)"),
-    violet  =  hsl_to_hex_css_str("hsl(265 ,42%  ,66%)"),
-    search  =  hsl_to_hex_css_str("hsl(57  ,62%  ,21%)"),
-    visual  =  hsl_to_hex_css_str("hsl(210 ,62%  ,21%)"),
-    bg1    =  "#181818",
-    bg2    =  hsl_to_hex_css_str("hsl(0   ,0%   ,18%)"),
-    bg3    =  hsl_to_hex_css_str("hsl(0   ,0%   ,22%)"),
-    fg2    =  hsl_to_hex_css_str("hsl(0   ,0%   ,42%)"),
-    fg1    =  hsl_to_hex_css_str("hsl(0   ,0%   ,80%)"),
+    red         =  hsl_to_hex_css_str("hsl(0   ,82%  ,70%)"),
+    orange      =  hsl_to_hex_css_str("hsl(25  ,79%  ,70%)"),
+    yellow      =  hsl_to_hex_css_str("hsl(50  ,59%  ,60%)"),
+    green       =  hsl_to_hex_css_str("hsl(120 ,32%  ,60%)"),
+    cyan        =  hsl_to_hex_css_str("hsl(185 ,27%  ,55%)"),
+    blue        =  hsl_to_hex_css_str("hsl(230 ,70%  ,70%)"),
+    violet      =  hsl_to_hex_css_str("hsl(265 ,42%  ,66%)"),
+    search      =  hsl_to_hex_css_str("hsl(57  ,62%  ,21%)"),
+    visual      =  hsl_to_hex_css_str("hsl(210 ,62%  ,21%)"),
+    bg_diff_add = hsl_to_hex_css_str("hsl(120 ,32%  ,12%)"),
+    bg_diff_del = hsl_to_hex_css_str("hsl(0   ,60%  ,12%)"),
+    bg1         =  "#181818",
+    bg2         =  hsl_to_hex_css_str("hsl(0   ,0%   ,18%)"),
+    bg3         =  hsl_to_hex_css_str("hsl(0   ,0%   ,22%)"),
+    fg2         =  hsl_to_hex_css_str("hsl(0   ,0%   ,42%)"),
+    fg1         =  hsl_to_hex_css_str("hsl(0   ,0%   ,80%)"),
 }
 -- stylua: ignore end
 M.set = function(colors)
@@ -81,10 +83,15 @@ M.set = function(colors)
     hl("CursorLine", { bg = colors.bg2 })
     hl("CursorColumn", { bg = colors.bg2 })
     hl("Directory", { fg = colors.fg1 })
-    hl("DiffAdd", { fg = colors.green })
+    hl("diffIndexLine", { fg = colors.fg2 })
+    hl("diffLine", { fg = colors.fg2 })
+    hl("diffFile", { fg = colors.orange })
+    hl("diffOldFile", { fg = colors.red })
+    hl("diffNewFile", { fg = colors.green })
+    hl("DiffAdd", { bg = colors.bg_diff_add })
     hl("DiffAdded", { link = "DiffAdd" })
     hl("DiffChange", { fg = colors.orange })
-    hl("DiffDelete", { fg = colors.red })
+    hl("DiffDelete", { bg = colors.bg_diff_del })
     hl("DiffRemoved", { link = "DiffDelete" })
     hl("DiffText", { fg = colors.orange })
     hl("EndOfBuffer", { bg = "NONE", fg = colors.bg1 })
