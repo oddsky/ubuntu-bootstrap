@@ -3,7 +3,7 @@
 sudo apt install -y \
     network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
     evolution-ews wl-clipboard alacritty keepassxc podman-docker golang-go ripgrep \
-    fzf npm pipx curl tmux
+    fzf npm pipx curl tmux skopeo
 
 sudo snap install pinta telegram-desktop
 sudo snap install --classic pycharm-community
@@ -60,7 +60,7 @@ EOF
 fi
 
 NAME="arch-tools"
-PACKAGE="kubectl helm helmfile sops k9s dive uv skopeo"
+PACKAGE="kubectl helm helmfile sops k9s dive uv"
 podman container exists $NAME \
     && podman start -ai $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
