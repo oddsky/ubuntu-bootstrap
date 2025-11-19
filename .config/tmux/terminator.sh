@@ -1,9 +1,10 @@
 #!/bin/bash
 
-FZF_OPTS='--bind=alt-k:up,alt-j:down --reverse'
+export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down --reverse --no-bold --style=minimal'
+
 LIST=$({
-        tmux list-sessions -F '#{?session_attached,#{session_name},}' | sed '/^$/d'
-        tmux list-sessions -F '#{?session_attached,,#{session_name}}' | sed '/^$/d'
+        tmux list-sessions -F '#{?session_attached,❱ #{session_name},}' | sed '/^$/d'
+        tmux list-sessions -F '#{?session_attached,,❱ #{session_name}}' | sed '/^$/d'
         find \
             $HOME \
             $HOME/.config \
@@ -13,13 +14,13 @@ LIST=$({
             -maxdepth 1 -type d 2> /dev/null
 })
 
-RESULT=$(fzf $FZF_OPTS <<<$LIST) || exit
+RESULT=$(fzf <<<$LIST) || exit
 
 if [[ $RESULT == "/"* ]]; then
     SEL=$(basename "$RESULT" | tr "[:upper:]:. " "[:lower:]---")
     tmux has-session -t "$SEL" 2>/dev/null || tmux new-session -d -s "$SEL" -c "$RESULT"
 else
-    SEL=${RESULT}
+    SEL=$(cut -d' ' -f 2 <<< $RESULT)
 fi
 
 tmux switch-client -t "$SEL"
