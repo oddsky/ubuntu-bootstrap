@@ -3,13 +3,10 @@
 sudo apt install -y \
     network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
     evolution-ews wl-clipboard alacritty keepassxc podman-docker golang-go ripgrep \
-    fzf npm pipx curl tmux skopeo
+    fzf npm curl tmux skopeo
 
 sudo snap install pinta telegram-desktop
 sudo snap install --classic pycharm-community
-
-pipx install ansible ansible-core tldr
-ansible-galaxy collection install ansible.posix community.general
 
 dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
 dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
@@ -17,6 +14,19 @@ dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 dconf write "/org/gnome/shell/extensions/dash-to-dock/click-action" "'minimize'"
+
+NAME="arch-tools"
+PACKAGE="kubectl helm helmfile sops k9s dive uv"
+podman container exists $NAME \
+    && podman start -ai $NAME \
+    || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
+tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin
+
+uv tool install --force ansible
+uv tool install --force ansible-core
+uv tool install --force tldr
+uv tool install --force --python python3.12 aider-chat
+ansible-galaxy collection install ansible.posix community.general
 
 find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
 find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
@@ -58,10 +68,3 @@ if [ ! -d /opt/pytimesched ]; then
         Type=Application
 EOF
 fi
-
-NAME="arch-tools"
-PACKAGE="kubectl helm helmfile sops k9s dive uv"
-podman container exists $NAME \
-    && podman start -ai $NAME \
-    || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
-tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin
