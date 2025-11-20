@@ -3,7 +3,7 @@
 sudo apt install -y \
     network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
     evolution-ews wl-clipboard alacritty keepassxc podman-docker golang-go ripgrep \
-    fzf npm curl tmux skopeo
+    fzf npm curl tmux skopeo ansible sqlite3
 
 sudo snap install pinta telegram-desktop
 sudo snap install --classic pycharm-community
@@ -22,11 +22,8 @@ podman container exists $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
 tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin
 
-uv tool install --force ansible
-uv tool install --force ansible-core
 uv tool install --force tldr
 uv tool install --force --python python3.12 aider-chat
-ansible-galaxy collection install ansible.posix community.general
 
 find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
 find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
