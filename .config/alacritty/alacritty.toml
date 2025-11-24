@@ -1,6 +1,5 @@
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
-# size = 11.5
 
 [terminal.shell]
 program = "tmux"
@@ -16,35 +15,3 @@ decorations = "None"
 
 [keyboard]
 bindings = [{ key = "Enter", mods = "Control", action = "ToggleFullscreen" }]
-
-# [colors.primary]
-# background = "#000000"
-# foreground = "#e6e6e6"
-#
-# [colors.cursor]
-# text = "#353a44"
-# cursor = "#ffffff"
-#
-# [colors.selection]
-# text = "#282c34"
-# background = "#ffffff"
-#
-# [colors.normal]
-# black = "#1d1f21"
-# red = "#cc6566"
-# green = "#b6bd68"
-# yellow = "#f0c674"
-# blue = "#82a2be"
-# magenta = "#b294bb"
-# cyan = "#8abeb7"
-# white = "#c4c8c6"
-#
-# [colors.bright]
-# black = "#666666"
-# red = "#d54e53"
-# green = "#b9ca4b"
-# yellow = "#e7c547"
-# blue = "#7aa6da"
-# magenta = "#c397d8"
-# cyan = "#70c0b1"
-# white = "#eaeaea"
