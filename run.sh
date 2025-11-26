@@ -2,7 +2,7 @@
 
 sudo apt install -y \
     network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
-    evolution-ews wl-clipboard alacritty keepassxc podman-docker golang-go ripgrep \
+    evolution-ews wl-clipboard keepassxc podman-docker golang-go ripgrep \
     fzf npm curl tmux skopeo ansible sqlite3
 
 sudo snap install pinta telegram-desktop
@@ -34,6 +34,12 @@ if [ ! -f ~/.fonts/README.md ]; then
     URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
     wget "$URL" -O /tmp/JetBrainsMono.zip
     unzip /tmp/JetBrainsMono.zip -d ~/.fonts
+fi
+
+if [ ! -f /usr/bin/ghostty ]; then
+    URL="https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.2.3-0-ppa1/ghostty_1.2.3-0.ppa1_amd64_25.10.deb"
+    wget "$URL" -O /tmp/ghostty_1.2.3-0.ppa1_amd64_25.10.deb
+    sudo apt install /tmp/ghostty_1.2.3-0.ppa1_amd64_25.10.deb
 fi
 
 if [ ! -f /usr/bin/ktalk ]; then
