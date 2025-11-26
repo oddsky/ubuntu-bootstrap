@@ -8,9 +8,8 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Swap buffers
 map("n", "<leader><Tab>", "<C-^>")
 
--- nvim-neo-tree/neo-tree.nvim
-map("n", "<leader>e", "<CMD>Neotree float toggle reveal<CR>")
-map("n", "<leader>q", "<CMD>Neotree right toggle reveal<CR>")
+map("n", "<leader>e", "<CMD>Ex .<CR>")
+map("n", "<leader>E", "<CMD>Ex<CR>")
 
 -- lewis6991/gitsigns.nvim
 map("n", "gb", "<CMD>Gitsigns blame_line<CR>")

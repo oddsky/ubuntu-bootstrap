@@ -82,14 +82,19 @@ vim.filetype.add({
     },
 })
 
-vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave", "WinNew", "WinClosed", "VimResized" }, {
+vim.api.nvim_create_autocmd({
+    "WinEnter",
+    "WinLeave",
+    "WinNew",
+    "WinClosed",
+    "VimResized",
+}, {
     callback = function()
         local win_count = #vim.api.nvim_tabpage_list_wins(0)
-
+        local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
         local hl = function(name, val)
             vim.api.nvim_set_hl(0, name, val)
         end
-
         if win_count == 1 then
             hl("StatusLine", { link = "SingleWinStatusLine" })
             hl("StatusLineNC", { link = "SingleWinStatusLineNC" })

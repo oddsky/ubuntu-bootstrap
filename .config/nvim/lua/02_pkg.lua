@@ -94,40 +94,40 @@ require("conform").setup({
     },
 })
 
-pak({
-    "https://github.com/nvim-neo-tree/neo-tree.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/nvim-tree/nvim-web-devicons",
-    "https://github.com/MunifTanjim/nui.nvim",
-    "https://github.com/s1n7ax/nvim-window-picker",
-})
-
-require("neo-tree").setup({
-    commands = {
-        system_open = function(state)
-            local path = state.tree:get_node():get_id()
-            vim.fn.jobstart({ "xdg-open", path }, { detach = true })
-        end,
-    },
-    filesystem = {
-        window = {
-            mappings = {
-                ["o"] = "system_open",
-            },
-        },
-        filtered_items = {
-            hide_dotfiles = false,
-            hide_gitignored = false,
-            hide_by_name = { ".git" },
-            always_show_by_pattern = { ".env*" },
-            always_show = {
-                ".dockerignore",
-                ".gitignore",
-                ".helmignore",
-            },
-        },
-    },
-})
+-- pak({
+--     "https://github.com/nvim-neo-tree/neo-tree.nvim",
+--     "https://github.com/nvim-lua/plenary.nvim",
+--     "https://github.com/nvim-tree/nvim-web-devicons",
+--     "https://github.com/MunifTanjim/nui.nvim",
+--     "https://github.com/s1n7ax/nvim-window-picker",
+-- })
+--
+-- require("neo-tree").setup({
+--     commands = {
+--         system_open = function(state)
+--             local path = state.tree:get_node():get_id()
+--             vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+--         end,
+--     },
+--     filesystem = {
+--         window = {
+--             mappings = {
+--                 ["o"] = "system_open",
+--             },
+--         },
+--         filtered_items = {
+--             hide_dotfiles = false,
+--             hide_gitignored = false,
+--             hide_by_name = { ".git" },
+--             always_show_by_pattern = { ".env*" },
+--             always_show = {
+--                 ".dockerignore",
+--                 ".gitignore",
+--                 ".helmignore",
+--             },
+--         },
+--     },
+-- })
 
 pak({ "https://github.com/echasnovski/mini.nvim" })
 require("mini.move").setup() -- Move any selection in any direction
