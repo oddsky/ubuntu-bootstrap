@@ -116,8 +116,15 @@ M.set = function(colors)
     hl("PmenuThumb", { bg = colors.fg2 })
     hl("Question", { fg = colors.blue })
     hl("SpecialKey", { fg = colors.fg1 })
-    hl("StatusLine", { fg = colors.fg2, bg = colors.bg2, italic = true })
-    hl("StatusLineNC", { fg = colors.fg2, bg = colors.bg2, italic = true })
+    -- for custom autocmd
+    hl("SingleWinStatusLine", { fg = colors.fg1, bg = "NONE", italic = true })
+    hl("SingleWinStatusLineNC", { fg = colors.fg2, bg = "NONE", italic = true })
+    hl("MultiWinStatusLine", { fg = colors.fg1, bg = colors.bg3, italic = true })
+    hl("MultiWinStatusLineNC", { fg = colors.fg2, bg = colors.bg2, italic = true })
+    -- default
+    hl("StatusLine", { link = "SingleWinStatusLine" })
+    hl("StatusLineNC", { link = "SingleWinStatusLineNC" })
+    --
     hl("TabLine", { fg = colors.fg2, bg = colors.bg1 })
     hl("TabLineFill", { fg = colors.fg2, bg = colors.bg1 })
     hl("TablineSel", { fg = colors.fg1, bg = colors.bg3 })

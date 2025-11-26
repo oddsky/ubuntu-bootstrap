@@ -10,8 +10,9 @@ vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 
 vim.opt.winborder = "single"
-vim.opt.cmdheight = 0 -- Command line height
--- vim.opt.statusline = " %f %m %= %l:%v"
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 2
+vim.opt.statusline = " %f %m %= %l:%v"
 vim.opt.cmdwinheight = 20
 
 -- search
@@ -79,4 +80,22 @@ vim.filetype.add({
         [".*/helmfiles?/.*%.ya?ml.gotmpl"] = "helm",
         ["helmfile.*%.ya?ml"] = "helm",
     },
+})
+
+vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave", "WinNew", "WinClosed", "VimResized" }, {
+    callback = function()
+        local win_count = #vim.api.nvim_tabpage_list_wins(0)
+
+        local hl = function(name, val)
+            vim.api.nvim_set_hl(0, name, val)
+        end
+
+        if win_count == 1 then
+            hl("StatusLine", { link = "SingleWinStatusLine" })
+            hl("StatusLineNC", { link = "SingleWinStatusLineNC" })
+        else
+            hl("StatusLine", { link = "MultiWinStatusLine" })
+            hl("StatusLineNC", { link = "MultiWinStatusLineNC" })
+        end
+    end,
 })
