@@ -8,3 +8,4 @@ command = tmux
 background = #181818
 gtk-titlebar = false
 mouse-hide-while-typing = true
+mouse-scroll-multiplier = 1
