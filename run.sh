@@ -22,7 +22,7 @@ podman container exists $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
 tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin
 
-helm plugin install https://github.com/databus23/helm-diff
+helm plugin install https://github.com/databus23/helm-diff || true
 
 uv tool install --force tldr
 uv tool install --force --python python3.12 aider-chat
