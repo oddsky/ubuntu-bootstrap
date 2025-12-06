@@ -1,12 +1,7 @@
 #!/bin/bash -xe
 
-sudo apt install -y \
-    network-manager-openconnect-gnome gnome-shell-extensions gnome-browser-connector \
-    evolution-ews wl-clipboard keepassxc podman-docker golang-go ripgrep \
-    fzf npm curl tmux skopeo ansible sqlite3
-
-sudo snap install pinta telegram-desktop
-sudo snap install --classic pycharm-community
+find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
+find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
 
 dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
 dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
@@ -15,20 +10,24 @@ dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 dconf write "/org/gnome/shell/extensions/dash-to-dock/click-action" "'minimize'"
 
+sudo apt install -y evolution-ews wl-clipboard keepassxc podman-docker golang-go \
+    ripgrep fzf npm curl tmux skopeo ansible sqlite3 gnome-shell-extensions \
+    network-manager-openconnect-gnome gnome-browser-connector python3-venv
+
+sudo snap install pinta telegram-desktop
+# sudo snap install --classic pycharm-community
+
 NAME="arch-tools"
 PACKAGE="kubectl helm helmfile sops k9s dive uv"
 podman container exists $NAME \
     && podman start -ai $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
-tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin
-
-helm plugin install https://github.com/databus23/helm-diff || true
+tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin/{}
 
 uv tool install --force tldr
 uv tool install --force --python python3.12 aider-chat
 
-find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
-find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
+helm plugin install https://github.com/databus23/helm-diff || true
 
 if [ ! -f ~/.fonts/README.md ]; then
     URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
@@ -62,14 +61,4 @@ if [ ! -d /opt/pytimesched ]; then
     sudo mkdir /opt/pytimesched
     sudo tar xzvf /tmp/pyTimeSched.tar.gz -C /opt/pytimesched
     sudo chown -R $USER:$USER /opt/pytimesched
-    mkdir -p ~/.local/share/applications/
-    cat << EOF | sed 's/^[[:space:]]*//' > ~/.local/share/applications/pyTimeSched.desktop
-        [Desktop Entry]
-        Version=1.0
-        Name=pyTimeSched
-        Exec=/opt/pytimesched/pyTimeSched
-        Icon=/opt/pytimesched/gui/icons/icon.png
-        Terminal=false
-        Type=Application
-EOF
 fi
