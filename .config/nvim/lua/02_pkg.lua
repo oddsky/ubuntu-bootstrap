@@ -157,3 +157,5 @@ require("fzf-lua").setup({
         },
     },
 })
+
+pak({ "https://github.com/norcalli/nvim-colorizer.lua" })

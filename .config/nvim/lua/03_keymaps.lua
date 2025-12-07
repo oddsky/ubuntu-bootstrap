@@ -1,21 +1,17 @@
 local map = vim.keymap.set
-local bind = vim.api.nvim_create_user_command
-local bind_default_opts = { bang = true }
+local bind = function(name, val)
+    vim.api.nvim_create_user_command(name, val, { bang = true })
+end
 
--- Clear highlights on search when pressing <Esc> in normal mode
-map("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
--- Swap buffers
-map("n", "<leader><Tab>", "<C-^>")
+map("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search hl
+map("n", "<leader><Tab>", "<C-^>") -- Swap buffers
 
 map("n", "<leader>e", "<CMD>Ex .<CR>")
 map("n", "<leader>E", "<CMD>Ex<CR>")
 
--- lewis6991/gitsigns.nvim
 map("n", "gb", "<CMD>Gitsigns blame_line<CR>")
 map("n", "dz", "<CMD>Gitsigns diffthis<CR>")
 
--- ibhagwan/fzf-lua
 map("n", "<leader>pf", "<CMD>FzfLua files<CR>")
 map("n", "<leader>pg", "<CMD>FzfLua live_grep_native<CR>")
 map("n", "<leader>pd", "<CMD>FzfLua diagnostics_workspace<CR>")
@@ -25,14 +21,9 @@ map("n", "<leader>pc", "<CMD>FzfLua grep_cword<CR>")
 map("n", "<leader>r", "<CMD>FzfLua resume<CR>")
 map("n", "<leader>pp", "<CMD>FzfLua<CR>")
 
--- echasnovski/mini.nvim
 map("n", "<leader>d", require("mini.bufremove").delete)
 map("n", "gS", require("mini.splitjoin").toggle)
 
--- Better J behavior
-vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
-
--- stevearc/conform.nvim
 map("n", "fr", function()
     require("conform").format({
         async = true,
@@ -40,7 +31,6 @@ map("n", "fr", function()
     })
 end)
 
--- ThePrimeagen/harpoon
 local function jump(num)
     return function()
         require("harpoon.ui").nav_file(num)
@@ -53,19 +43,18 @@ map("n", "<leader>2", jump(2))
 map("n", "<leader>3", jump(3))
 map("n", "<leader>4", jump(4))
 
--- custom
 map("n", "<leader>D", "<CMD>tabclose<CR>")
 map("n", "<leader>g", "<CMD>tab G<CR>")
 map("n", "<leader>0", "<CMD>e ~/places/git/personal/second-brain/scratch.md<CR>")
 
-bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md", bind_default_opts)
-bind("W", "w", bind_default_opts)
-bind("Q", "q", bind_default_opts)
-bind("X", "x", bind_default_opts)
+bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md")
+bind("W", "w")
+bind("Q", "q")
+bind("X", "x")
 
-bind("Gb", "G branch -a -vvv", bind_default_opts)
-bind("Gp", "G push", bind_default_opts)
-bind("Gfe", "G fetch origin", bind_default_opts)
-bind("Gca", "G commit --amend", bind_default_opts)
-bind("Grm", "G rebase master", bind_default_opts)
-bind("Gpf", "G push --force", bind_default_opts)
+bind("Gb", "G branch -a -vvv")
+bind("Gp", "G push")
+bind("Gfe", "G fetch origin")
+bind("Gca", "G commit --amend")
+bind("Grm", "G rebase master")
+bind("Gpf", "G push --force")
