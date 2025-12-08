@@ -30,7 +30,7 @@ uv tool install --force --python python3.12 aider-chat
 helm plugin install https://github.com/databus23/helm-diff || true
 
 if [ ! -f ~/.fonts/README.md ]; then
-    URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Iosevka.zip"
+    URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
     wget "$URL" -O /tmp/font.zip
     unzip /tmp/font.zip -d ~/.fonts
 fi

@@ -11,11 +11,11 @@ local c = {
     visual       =  "#0D243A",
     bg_diff_add  =  "#152815",
     bg_diff_del  =  "#310C0C",
-    bg1          =  "#000000",
-    bg2          =  "#1A1A1A",
-    bg3          =  "#292929",
-    fg2          =  "#595959",
-    fg1          =  "#CCCCCC",
+    bg1          =  "#1A1A1A",
+    bg2          =  "#2e2e2e",
+    bg3          =  "#454545",
+    fg2          =  "#666666",
+    fg1          =  "#d9d9d9",
 }
 -- stylua: ignore end
 
