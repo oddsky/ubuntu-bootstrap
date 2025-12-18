@@ -17,5 +17,5 @@ source /tmp/comp
 git_clean() {
     BRANCH=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|^origin/||')
     git checkout "$BRANCH" && git pull
-    git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+    LANG=en_US.UTF-8 git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
 }
