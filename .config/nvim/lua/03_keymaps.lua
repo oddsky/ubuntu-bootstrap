@@ -14,7 +14,7 @@ map("n", "dz", "<CMD>Gitsigns diffthis<CR>")
 
 map("n", "<leader>pf", "<CMD>FzfLua files<CR>")
 map("n", "<leader>pg", "<CMD>FzfLua live_grep_native<CR>")
-map("n", "<leader>pd", "<CMD>FzfLua diagnostics_workspace<CR>")
+map("n", "<leader>pd", "<CMD>FzfLua diagnostics_document<CR>")
 map("n", "<leader>pb", "<CMD>FzfLua buffers<CR>")
 map("n", "<leader>ph", "<CMD>FzfLua helptags<CR>")
 map("n", "<leader>pc", "<CMD>FzfLua grep_cword<CR>")

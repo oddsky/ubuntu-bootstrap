@@ -119,12 +119,16 @@ vim.lsp.config("ruff", {
                     "ANN205",
                     "ARG001",
                     "ARG002",
+                    "C901",
                     "DTZ005",
+                    "E501",
                     "F841",
                     "LOG015",
                     "N803",
                     "N806",
                     "PGH003",
+                    "PLR0913",
+                    "PLR2004",
                     "PLW0603",
                     "RUF001",
                     "RUF002",
@@ -147,12 +151,12 @@ vim.lsp.config("ruff", {
 })
 
 vim.lsp.enable({
+    "bashls",
+    "dockerls",
     "gopls",
     "helm_ls",
     "lua_ls",
-    "bashls",
+    "ruff",
     "pyright",
     "yamlls",
-    "ruff",
-    "dockerls",
 })
