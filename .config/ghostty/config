@@ -7,5 +7,6 @@ window-padding-color = extend
 command = tmux
 gtk-titlebar = false
 background = #1a1a1a
+theme = Tomorrow Night
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 1
