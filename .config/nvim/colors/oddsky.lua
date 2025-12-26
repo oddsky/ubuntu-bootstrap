@@ -1,32 +1,12 @@
 -- stylua: ignore start
-
--- local c = {
---     red          =  "#F17474",
---     orange       =  "#EFA876",
---     yellow       =  "#D5C15D",
---     green        =  "#78BA78",
---     cyan         =  "#6DA6AB",
---     blue         =  "#7D8FE8",
---     violet       =  "#A284CD",
---     search       =  "#3A370D",
---     visual       =  "#0D243A",
---     bg_diff_add  =  "#152815",
---     bg_diff_del  =  "#310C0C",
---     bg1          =  "#1A1A1A",
---     bg2          =  "#2e2e2e",
---     bg3          =  "#454545",
---     fg2          =  "#666666",
---     fg1          =  "#d9d9d9",
--- }
-
 local c = {
-    red          =  "#cc6666",
-    orange       =  "#de935f",
-    yellow       =  "#f0c674",
-    green        =  "#b5bd68",
-    cyan         =  "#8cbaac",
-    blue         =  "#89a5c2",
-    violet       =  "#b294bb",
+    red          =  "#F17474",
+    orange       =  "#EFA876",
+    yellow       =  "#D5C15D",
+    green        =  "#78BA78",
+    cyan         =  "#6DA6AB",
+    blue         =  "#7D8FE8",
+    violet       =  "#A284CD",
     search       =  "#3A370D",
     visual       =  "#0D243A",
     bg_diff_add  =  "#152815",
@@ -35,9 +15,8 @@ local c = {
     bg2          =  "#2e2e2e",
     bg3          =  "#454545",
     fg2          =  "#666666",
-    fg1          =  "#c5c8c6",
+    fg1          =  "#d9d9d9",
 }
-
 -- stylua: ignore end
 
 vim.cmd("hi clear")
@@ -194,14 +173,14 @@ hl("@repeat", { fg = c.orange, bold = true })
 hl("@label", { fg = c.violet, italic = true })
 hl("@operator", { fg = c.fg1 })
 hl("@keyword", { fg = c.red })
-hl("@keyword.function", { fg = c.blue })
+hl("@keyword.function", { fg = c.red })
 hl("@keyword.operator", { fg = c.orange })
 hl("@exception", { fg = c.orange, bold = true })
 hl("@variable", { fg = c.fg1 })
 hl("@variable.builtin", { fg = c.violet })
-hl("@variable.parameter", { fg = c.fg1 })
+hl("@variable.parameter", { fg = c.orange, italic = true })
 hl("@type", { fg = c.yellow })
-hl("@type.builtin", { fg = c.violet })
+hl("@type.builtin", { link = "@type" })
 hl("@type.qualifire", { fg = c.cyan })
 hl("@type.definition", { fg = c.cyan, bold = true })
 hl("@storageclass", { fg = c.orange, bold = true })
@@ -218,6 +197,7 @@ hl("@tag.attribute", { fg = c.orange })
 hl("@constructor.python", { fg = c.yellow })
 hl("@module.python", { fg = c.fg1 })
 hl("@string.documentation.python", { link = "Comment" })
+hl("@attribute.python", { fg = c.fg1 })
 
 -- markdown
 hl("@markup.heading.1.markdown", { fg = c.red, italic = true })

@@ -19,8 +19,7 @@ sudo snap install pinta telegram-desktop
 
 NAME="arch-tools"
 PACKAGE="kubectl helm helmfile sops k9s dive uv"
-podman container exists $NAME \
-    && podman start -ai $NAME \
+podman container exists $NAME && podman start -ai $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
 tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin/{}
 
