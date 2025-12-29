@@ -1,6 +1,6 @@
-export PS1=' \[\e[34;1m\]\W\[\e[0m\] ❱ '
-export EDITOR="nvim"
+export PS1='\[\e[34;3m\]\W\[\e[0m\] \$ '
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
+export EDITOR="nvim"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
 export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down'
