@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down --reverse --no-bold --style=minimal'
+export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down --reverse --style=minimal'
 
 LIST=$({
         tmux list-sessions -F '#{?session_attached,❱ #{session_name},}' | sed '/^$/d'
@@ -14,7 +14,7 @@ LIST=$({
             -maxdepth 1 -type d 2> /dev/null
 })
 
-RESULT=$(fzf <<<$LIST) || exit
+RESULT=$(fzf <<<$LIST)
 
 if [[ $RESULT == "/"* ]]; then
     SEL=$(basename "$RESULT" | tr "[:upper:]:. " "[:lower:]---")
