@@ -6,8 +6,8 @@ end
 map("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search hl
 map("n", "<leader><Tab>", "<C-^>") -- Swap buffers
 
-map("n", "<leader>e", "<CMD>Ex .<CR>")
-map("n", "<leader>E", "<CMD>Ex<CR>")
+-- nvim-neo-tree/neo-tree.nvim
+map("n", "<leader>e", "<CMD>Neotree float toggle reveal<CR>")
 
 map("n", "gb", "<CMD>Gitsigns blame_line<CR>")
 map("n", "dz", "<CMD>Gitsigns diffthis<CR>")
