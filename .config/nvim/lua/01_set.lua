@@ -79,6 +79,8 @@ vim.filetype.add({
         [".*/helmfiles?/.*%.ya?ml"] = "helm",
         [".*/helmfiles?/.*%.ya?ml.gotmpl"] = "helm",
         ["helmfile.*%.ya?ml"] = "helm",
+        ["helmfile.*%.ya?ml.gotmpl"] = "helm",
+        ["values.yaml.gotmpl"] = "helm",
     },
 })
 
