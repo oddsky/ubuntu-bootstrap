@@ -7,6 +7,7 @@ export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down'
 
 alias v='nvim'
 alias vv='test -d .venv && source .venv/bin/activate || deactivate'
+alias py='python3'
 
 if [ ! -f /tmp/comp ]; then
     kubectl completion bash > /tmp/comp
