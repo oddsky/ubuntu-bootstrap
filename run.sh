@@ -4,15 +4,14 @@ find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
 find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
 
 dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
-dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
 dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
+dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
-dconf write "/org/gnome/shell/extensions/dash-to-dock/click-action" "'minimize'"
 
-sudo apt install -y evolution-ews wl-clipboard keepassxc podman-docker golang-go \
-    ripgrep fzf npm curl tmux skopeo ansible sqlite3 gnome-shell-extensions \
-    network-manager-openconnect-gnome gnome-browser-connector python3-venv
+sudo apt install -y alacritty evolution-ews keepassxc podman-docker golang-go \
+    python3-venv ripgrep fzf npm curl tmux skopeo ansible sqlite3 wl-clipboard \
+    gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
 # sudo snap install --classic pycharm-community
@@ -32,12 +31,6 @@ if [ ! -f ~/.fonts/README.md ]; then
     URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
     wget "$URL" -O /tmp/font.zip
     unzip /tmp/font.zip -d ~/.fonts
-fi
-
-if [ ! -f /usr/bin/ghostty ]; then
-    URL="https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.2.3-0-ppa1/ghostty_1.2.3-0.ppa1_amd64_25.10.deb"
-    wget "$URL" -O /tmp/ghostty_1.2.3-0.ppa1_amd64_25.10.deb
-    sudo apt install /tmp/ghostty_1.2.3-0.ppa1_amd64_25.10.deb
 fi
 
 if [ ! -f /usr/bin/ktalk ]; then

@@ -1,8 +1,9 @@
-export PS1='\[\e[90m\]($?)\[\e[0m\] \[\e[94m\]\W\[\e[0m\]\$ '
-export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
-export EDITOR="nvim"
-export GNUPGHOME="~/places/gpg"
-export AWS_CONFIG_FILE="~/places/.aws_credentials"
+PS1='\[\e[90m\]($?)\[\e[0m\] \[\e[94m\]\W\[\e[0m\]\$ '
+PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
+EDITOR="nvim"
+GNUPGHOME="~/places/gpg"
+AWS_CONFIG_FILE="~/places/.aws_credentials"
+
 export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down'
 
 alias v='nvim'
