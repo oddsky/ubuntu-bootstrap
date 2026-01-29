@@ -46,6 +46,7 @@ map("n", "<leader>4", jump(4))
 map("n", "<leader>D", "<CMD>tabclose<CR>")
 map("n", "<leader>g", "<CMD>tab G<CR>")
 map("n", "<leader>0", "<CMD>e ~/places/git/personal/second-brain/scratch.md<CR>")
+map("v", "<leader>r", ":'<,'>:w !tmux load-buffer -; tmux paste-buffer -t 1.1<CR>")
 
 bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md")
 bind("W", "w")
