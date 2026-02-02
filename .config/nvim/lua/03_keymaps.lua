@@ -8,6 +8,7 @@ map("n", "<leader><Tab>", "<C-^>") -- Swap buffers
 
 -- nvim-neo-tree/neo-tree.nvim
 map("n", "<leader>e", "<CMD>Neotree float toggle reveal<CR>")
+map("n", "<leader>q", "<CMD>Neotree left toggle reveal<CR>")
 
 map("n", "gb", "<CMD>Gitsigns blame_line<CR>")
 map("n", "dz", "<CMD>Gitsigns diffthis<CR>")

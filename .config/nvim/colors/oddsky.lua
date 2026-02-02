@@ -8,14 +8,15 @@ local c = {
     blue         =  "#7D8FE8",
     violet       =  "#A284CD",
     search       =  "#3A370D",
-    visual       =  "#0D243A",
+    visual       =  "#14293D",
     bg_diff_add  =  "#152815",
     bg_diff_del  =  "#310C0C",
-    bg1          =  "#181818",
-    bg2          =  "#2e2e2e",
-    bg3          =  "#454545",
+    bg1          =  "#1E1F22",
+    bg2          =  "#26282E",
+    bg3          =  "#2E3038",
+    bg4          =  "#383A3E",
     fg2          =  "#666666",
-    fg1          =  "#d9d9d9",
+    fg1          =  "#D9D9D9",
 }
 -- stylua: ignore end
 
@@ -49,7 +50,7 @@ hl("DiffText", { fg = c.orange })
 hl("EndOfBuffer", { bg = "NONE", fg = c.bg1 })
 hl("ErrorMsg", { fg = c.red, underline = true })
 hl("VertSplit", { fg = c.bg2 })
-hl("WinSeparator", { fg = c.bg3 })
+hl("WinSeparator", { fg = c.bg4 })
 hl("Folded", { fg = c.fg2 })
 hl("FoldColumn", { fg = c.fg2 })
 hl("SignColumn", { fg = c.fg1 })
@@ -69,7 +70,7 @@ hl("PmenuThumb", { bg = c.fg2 })
 hl("Question", { fg = c.blue })
 hl("SpecialKey", { fg = c.fg1 })
 -- for custom autocmd
-hl("SingleWinStatusLine", { fg = c.fg1, bg = "NONE", italic = true })
+hl("SingleWinStatusLine", { fg = c.fg2, bg = "NONE", italic = true })
 hl("SingleWinStatusLineNC", { fg = c.fg2, bg = "NONE", italic = true })
 hl("MultiWinStatusLine", { fg = c.fg1, bg = c.bg3, italic = true })
 hl("MultiWinStatusLineNC", { fg = c.fg2, bg = c.bg2, italic = true })
@@ -79,7 +80,7 @@ hl("StatusLineNC", { link = "SingleWinStatusLineNC" })
 --
 hl("TabLine", { fg = c.fg2, bg = c.bg1 })
 hl("TabLineFill", { fg = c.fg2, bg = c.bg1 })
-hl("TablineSel", { fg = c.fg1, bg = c.bg3 })
+hl("TablineSel", { fg = c.fg1, bg = c.bg4 })
 hl("Title", { italic = true })
 hl("Visual", { bg = c.visual })
 hl("VisualNOS", { bg = c.visual })
