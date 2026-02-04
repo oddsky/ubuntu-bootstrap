@@ -1,3 +1,5 @@
+[core]
+    excludesfile = ~/.gitignore_global
 [user]
 	name = Roman Rossamakhin
 	email = rossamakhin01@gmail.com

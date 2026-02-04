@@ -6,6 +6,15 @@ export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
 export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down'
 
+export AIDER_DARK_MODE=true
+export AIDER_MODEL="openai/gpt-5-mini"
+export AIDER_OPENAI_API_KEY=$(cat ~/places/.proxyapi_key)
+export AIDER_OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1"
+export AIDER_GIT=false
+export AIDER_AUTO_LINT=true
+export AIDER_ANALYTICS=false
+export AIDER_CHECK_UPDATE=false
+
 alias v='nvim'
 alias vv='test -d .venv && source .venv/bin/activate || deactivate'
 alias py='python3'
