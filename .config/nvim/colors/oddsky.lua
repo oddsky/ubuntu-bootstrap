@@ -27,8 +27,8 @@ local hl = function(name, val)
     vim.api.nvim_set_hl(0, name, val)
 end
 
--- UI highlight
-hl("Normal", { fg = c.fg1, bg = c.bg1 })
+hl("Normal", { bg = c.bg1, fg = c.fg1 })
+hl("WinBar", { bg = "NONE" })
 hl("NormalFloat", { fg = c.fg1 })
 hl("FloatBorder", { fg = c.fg2 })
 hl("ColorColumn", { bg = c.bg2 })

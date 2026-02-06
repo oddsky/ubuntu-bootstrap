@@ -88,7 +88,7 @@ require("conform").setup({
         zsh = { "beautysh" },
         sql = { "sqlfmt" },
         json = { "fixjson" },
-        markdown = { "cbfmt" },
+        markdown = { "prettier", "cbfmt" },
         toml = { "taplo" },
         go = { "gofumpt" },
     },
@@ -193,4 +193,10 @@ require("neo-tree").setup({
             },
         },
     },
+})
+
+pak({ "https://github.com/nvimdev/lspsaga.nvim" })
+require("lspsaga").setup({
+    lightbulb = { enable = false },
+    beacon = { enable = false },
 })
