@@ -14,6 +14,8 @@ export AIDER_GIT=false
 export AIDER_AUTO_LINT=true
 export AIDER_ANALYTICS=false
 export AIDER_CHECK_UPDATE=false
+export AIDER_WATCH_FILES=true
+export AIDER_NOTIFICATIONS=true
 
 alias v='nvim'
 alias vv='test -d .venv && source .venv/bin/activate || deactivate'
