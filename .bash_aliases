@@ -7,11 +7,18 @@ export AWS_CONFIG_FILE="~/places/.aws_credentials"
 export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down'
 
 export AIDER_DARK_MODE=true
-export AIDER_MODEL="openai/gpt-5-mini"
 export AIDER_OPENAI_API_KEY=$(cat ~/places/.proxyapi_key)
 export AIDER_OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1"
-export AIDER_GIT=false
-export AIDER_AUTO_LINT=true
+export AIDER_MODEL="openai/gemini/gemini-3-flash-preview"
+export AIDER_WEAK_MODEL="openai/gemini/gemini-2.5-flash-lite"
+export AIDER_SHOW_MODEL_WARNINGS=false
+export AIDER_CHECK_MODEL_ACCEPTS_SETTINGS=false
+export AIDER_EDIT_FORMAT="diff-fenced"
+export AIDER_MAP_TOKENS=1024
+export OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1"
+export AIDER_GITIGNORE=false
+export AIDER_AUTO_COMMITS=false
+export AIDER_AUTO_LINT=false
 export AIDER_ANALYTICS=false
 export AIDER_CHECK_UPDATE=false
 export AIDER_WATCH_FILES=true
