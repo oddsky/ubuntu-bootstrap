@@ -69,15 +69,7 @@ hl("PmenuSbar", { bg = c.fg2 })
 hl("PmenuThumb", { bg = c.fg2 })
 hl("Question", { fg = c.blue })
 hl("SpecialKey", { fg = c.fg1 })
--- for custom autocmd
-hl("SingleWinStatusLine", { fg = c.fg2, bg = "NONE", italic = true })
-hl("SingleWinStatusLineNC", { fg = c.fg2, bg = "NONE", italic = true })
-hl("MultiWinStatusLine", { fg = c.fg1, bg = c.bg3, italic = true })
-hl("MultiWinStatusLineNC", { fg = c.fg2, bg = c.bg2, italic = true })
--- default
-hl("StatusLine", { link = "SingleWinStatusLine" })
-hl("StatusLineNC", { link = "SingleWinStatusLineNC" })
---
+hl("StatusLine", { fg = c.fg2, bg = "NONE", italic = true })
 hl("TabLine", { fg = c.fg2, bg = c.bg1 })
 hl("TabLineFill", { fg = c.fg2, bg = c.bg1 })
 hl("TablineSel", { fg = c.fg1, bg = c.bg4 })
