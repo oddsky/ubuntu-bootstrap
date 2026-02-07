@@ -29,6 +29,7 @@ end
 
 hl("Normal", { bg = c.bg1, fg = c.fg1 })
 hl("WinBar", { bg = "NONE" })
+hl("WinBarNC", { bg = "NONE" })
 hl("NormalFloat", { fg = c.fg1 })
 hl("FloatBorder", { fg = c.fg2 })
 hl("ColorColumn", { bg = c.bg2 })

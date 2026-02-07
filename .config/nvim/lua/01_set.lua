@@ -44,6 +44,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "help", "man" },
+    callback = function()
+        vim.cmd("wincmd L")
+        vim.cmd("vertical resize 80")
+    end,
+})
+
 vim.filetype.add({
     pattern = {
         [".*/templates/.*%.tpl"] = "helm",
