@@ -14,7 +14,6 @@ sudo apt install -y alacritty evolution-ews keepassxc podman-docker golang-go \
     gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
-# sudo snap install --classic pycharm-community
 
 NAME="arch-tools"
 PACKAGE="kubectl helm helmfile sops k9s dive uv"
@@ -34,7 +33,7 @@ if [ ! -f ~/.fonts/README.md ]; then
 fi
 
 if [ ! -f /usr/bin/ktalk ]; then
-    URL="https://st.ktalk.host/ktalk-app/linux/ktalk3.1.0amd64.deb"
+    URL="https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb"
     wget "$URL" -O /tmp/ktalk.deb
     sudo apt install -y /tmp/ktalk.deb
 fi
