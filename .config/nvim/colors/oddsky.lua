@@ -192,8 +192,10 @@ hl("@constructor.python", { fg = c.yellow })
 hl("@module.python", { fg = c.fg1 })
 hl("@string.documentation.python", { link = "Comment" })
 hl("@attribute.python", { fg = c.fg1 })
+hl("@constant.builtin.python", { fg = c.violet })
 
 -- markdown
+hl("@markup.raw.block.markdown", { fg = c.green })
 hl("@markup.heading.1.markdown", { fg = c.red, italic = true })
 hl("@markup.heading.2.markdown", { fg = c.orange, italic = true })
 hl("@markup.heading.3.markdown", { fg = c.yellow, italic = true })
@@ -253,3 +255,12 @@ hl("Indent", { link = "VertSplit" })
 
 -- FzfLua
 hl("FzfLuaBorder", { link = "VertSplit" })
+
+-- yaml
+hl("@boolean.yaml", { fg = c.fg1 })
+hl("@property.yaml", { fg = c.orange })
+hl("@string.yaml", { fg = c.fg1 })
+hl("@number.yaml", { fg = c.fg1 })
+
+-- toml
+hl("@property.toml", { fg = c.orange })
