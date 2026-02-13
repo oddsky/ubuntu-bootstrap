@@ -57,12 +57,13 @@ require("mason").setup({})
 require("mason-tool-installer").setup({
     ensure_installed = {
         -- lsp's
+        "bash-language-server",
         "gopls",
         "helm-ls",
         "lua-language-server",
-        "bash-language-server",
         "pyright",
         "yaml-language-server",
+        "groovy-language-server",
         -- formatters
         "beautysh",
         "cbfmt",
@@ -92,6 +93,10 @@ vim.lsp.config("helm_ls", {
         ["helm-ls"] = { yamlls = { path = "yaml-language-server" } },
     },
 })
+
+vim.lsp.config["groovyls"] = {
+    cmd = { "groovy-language-server" },
+}
 
 vim.lsp.config("ruff", {
     init_options = {
@@ -157,4 +162,5 @@ vim.lsp.enable({
     "ruff",
     "pyright",
     "yamlls",
+    "groovyls",
 })

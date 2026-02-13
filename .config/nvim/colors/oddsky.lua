@@ -195,7 +195,7 @@ hl("@attribute.python", { fg = c.fg1 })
 hl("@constant.builtin.python", { fg = c.violet })
 
 -- markdown
-hl("@markup.raw.block.markdown", { fg = c.green })
+hl("@markup.raw.block.markdown", { fg = c.fg1 })
 hl("@markup.heading.1.markdown", { fg = c.red, italic = true })
 hl("@markup.heading.2.markdown", { fg = c.orange, italic = true })
 hl("@markup.heading.3.markdown", { fg = c.yellow, italic = true })
@@ -264,3 +264,7 @@ hl("@number.yaml", { fg = c.fg1 })
 
 -- toml
 hl("@property.toml", { fg = c.orange })
+
+--bash
+hl("@property.toml", { fg = c.orange })
+hl("@variable.parameter.bash", { fg = c.gf1 })

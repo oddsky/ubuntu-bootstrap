@@ -9,8 +9,8 @@ dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shif
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 
-sudo apt install -y alacritty evolution-ews keepassxc podman-docker golang-go \
-    python3-venv ripgrep fzf npm curl tmux skopeo ansible sqlite3 wl-clipboard \
+sudo apt install -y alacritty evolution-ews keepassxc podman-docker wl-clipboard curl \
+    ripgrep fzf npm tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk python3-venv \
     gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
