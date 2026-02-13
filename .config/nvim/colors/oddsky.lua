@@ -268,3 +268,7 @@ hl("@property.toml", { fg = c.orange })
 --bash
 hl("@property.toml", { fg = c.orange })
 hl("@variable.parameter.bash", { fg = c.gf1 })
+
+-- nvim-treesitter-context
+hl("TreesitterContext", { bg = c.bg2 })
+hl("TreesitterContextLineNumber", { fg = c.fg2, bg = c.bg2 })

@@ -6,6 +6,11 @@ end
 map("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search hl
 map("n", "<leader><Tab>", "<C-^>") -- Swap buffers
 
+-- jump to upwards context
+map("n", "[c", function()
+    require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })
+
 -- nvim-neo-tree/neo-tree.nvim
 map("n", "<leader>e", "<CMD>Neotree float toggle reveal<CR>")
 map("n", "<leader>q", "<CMD>Neotree left toggle reveal<CR>")
