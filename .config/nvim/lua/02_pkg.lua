@@ -2,10 +2,9 @@ local pak = vim.pack.add
 
 pak({
     "https://github.com/tpope/vim-fugitive",
-    "https://github.com/armyers/Vim-Jinja2-Syntax",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/maxmx03/solarized.nvim",
+    "https://github.com/norcalli/nvim-colorizer.lua",
 })
 
 pak({ "https://github.com/ThePrimeagen/harpoon" })
@@ -32,10 +31,8 @@ require("blink.cmp").setup({
 
 pak({ "https://github.com/saghen/blink.indent" })
 require("blink.indent").setup({
-    static = {
-        highlights = { "Indent" },
-    },
     scope = { enabled = false },
+    static = { highlights = { "Indent" } },
 })
 
 pak({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "master" } })
@@ -99,9 +96,6 @@ require("mini.move").setup() -- Move any selection in any direction
 require("mini.bufremove").setup() -- Remove buffers
 require("mini.comment").setup() -- Comment lines
 
-pak({ "https://github.com/kylechui/nvim-surround" })
-require("nvim-surround").setup({})
-
 pak({ "https://github.com/ibhagwan/fzf-lua" })
 require("fzf-lua").setup({
     fzf_colors = true,
@@ -110,9 +104,7 @@ require("fzf-lua").setup({
         cwd_prompt = false,
         follow = true,
     },
-    grep = {
-        follow = true,
-    },
+    grep = { follow = true },
     winopts = {
         border = "single",
         fullscreen = true,
@@ -123,33 +115,22 @@ require("fzf-lua").setup({
     },
 })
 
-pak({ "https://github.com/norcalli/nvim-colorizer.lua" })
-
 pak({
     "https://github.com/nvim-neo-tree/neo-tree.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/MunifTanjim/nui.nvim",
-    "https://github.com/s1n7ax/nvim-window-picker",
 })
 
 require("neo-tree").setup({
-    commands = {
-        system_open = function(state)
-            local path = state.tree:get_node():get_id()
-            vim.fn.jobstart({ "xdg-open", path }, { detach = true })
-        end,
-    },
     filesystem = {
         window = {
-            mappings = {
-                ["o"] = "system_open",
-            },
+            mappings = { ["o"] = "system_open" },
         },
         filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = false,
             hide_by_name = { ".git" },
+            hide_by_pattern = { ".aider*" },
             always_show_by_pattern = { ".env*" },
             always_show = {
                 ".dockerignore",

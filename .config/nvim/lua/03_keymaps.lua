@@ -49,12 +49,10 @@ map("n", "<leader>g", "<CMD>tab G<CR>")
 map("n", "<leader>0", "<CMD>e ~/places/git/personal/second-brain/scratch.md<CR>")
 map("v", "<leader>r", ":'<,'>:w !tmux load-buffer -; tmux paste-buffer -t 1.1<CR>")
 
-bind("Tmp", "e ~/places/git/personal/second-brain/scratch.md")
 bind("W", "w")
 bind("Q", "q")
 bind("X", "x")
 
-bind("Gb", "G branch -a -vvv")
 bind("Gp", "G push")
 bind("Gfe", "G fetch origin")
 bind("Gca", "G commit --amend")

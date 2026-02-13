@@ -19,20 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
--- diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
-    virtual_text = false,
-})
-
 vim.diagnostic.config({
-    virtual_text = false,
-    unerline = false,
-    float = {
-        header = false,
-        border = "single",
-        focusable = true,
-    },
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = "",
@@ -42,16 +29,6 @@ vim.diagnostic.config({
         },
     },
 })
-
-local hover = vim.lsp.buf.hover
-vim.lsp.buf.hover = function()
-    return hover({
-        border = "single",
-        -- max_width = 100,
-        max_width = math.floor(vim.o.columns * 0.7),
-        max_height = math.floor(vim.o.lines * 0.7),
-    })
-end
 
 require("mason").setup({})
 require("mason-tool-installer").setup({
@@ -78,7 +55,7 @@ require("mason-tool-installer").setup({
 })
 
 -- Fix Undefined global 'vim'
-vim.lsp.config("lua_ls", {
+vim.lsp.config["lua_ls"] = {
     settings = {
         Lua = {
             diagnostics = {
@@ -86,19 +63,21 @@ vim.lsp.config("lua_ls", {
             },
         },
     },
-})
+}
 
-vim.lsp.config("helm_ls", {
+vim.lsp.config["helm_ls"] = {
     settings = {
-        ["helm-ls"] = { yamlls = { path = "yaml-language-server" } },
+        ["helm-ls"] = {
+            yamlls = { path = "yaml-language-server" },
+        },
     },
-})
+}
 
 vim.lsp.config["groovyls"] = {
     cmd = { "groovy-language-server" },
 }
 
-vim.lsp.config("ruff", {
+vim.lsp.config["ruff"] = {
     init_options = {
         settings = {
             lint = {
@@ -145,14 +124,10 @@ vim.lsp.config("ruff", {
                     "TRY400",
                     "UP032",
                 },
-                pydocstyle = {
-                    convention = "google",
-                    ignore_var_parameters = true,
-                },
             },
         },
     },
-})
+}
 
 vim.lsp.enable({
     "bashls",

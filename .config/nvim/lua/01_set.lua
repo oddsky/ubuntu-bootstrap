@@ -11,13 +11,10 @@ vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 vim.opt.winborder = "single"
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
-vim.opt.cmdwinheight = 20
 
 -- search
 vim.opt.ignorecase = true -- Case insensitive search
 vim.opt.smartcase = true -- Case sensitive if uppercase in search
-vim.opt.hlsearch = true -- Highlight search results
-vim.opt.incsearch = true -- Show matches as you type
 
 -- tabs
 vim.opt.syntax = "ON"
@@ -30,15 +27,11 @@ vim.opt.tabstop = 4 -- 1 tab == 4 spaces
 vim.opt.splitbelow = true -- Horizontal splits go below
 vim.opt.splitright = true -- Vertical splits go right
 
-vim.opt.showmatch = true -- Highlight matching brackets
-vim.opt.matchtime = 2 -- How long to show matching bracket
-
 -- Key mappings
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set local leader key (NEW)
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking text",
     callback = function()
         vim.highlight.on_yank()
     end,
