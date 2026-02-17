@@ -25,6 +25,7 @@ map("n", "<leader>pb", "<CMD>FzfLua buffers<CR>")
 map("n", "<leader>ph", "<CMD>FzfLua helptags<CR>")
 map("n", "<leader>pc", "<CMD>FzfLua grep_cword<CR>")
 map("n", "<leader>r", "<CMD>FzfLua resume<CR>")
+map("n", "<leader>G", "<CMD>FzfLua git_branches<CR>")
 map("n", "<leader>pp", "<CMD>FzfLua<CR>")
 
 map("n", "<leader>d", require("mini.bufremove").delete)

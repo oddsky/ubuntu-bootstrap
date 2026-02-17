@@ -142,3 +142,4 @@ require("neo-tree").setup({
 })
 
 pak({ "https://github.com/nvim-treesitter/nvim-treesitter-context" })
+require("treesitter-context").setup({ multiline_threshold = 5 })
