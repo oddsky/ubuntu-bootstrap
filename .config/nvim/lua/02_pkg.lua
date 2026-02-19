@@ -42,6 +42,7 @@ require("nvim-treesitter.configs").setup({
         "go",
         "groovy",
         "helm",
+        "java",
         "json",
         "jsonc",
         "lua",
@@ -73,8 +74,12 @@ require("conform").setup({
         cbfmt = {
             prepend_args = { "--config", "/home/rrossamakhin/.config/nvim/cbfmt.toml" },
         },
+        ["google-java-format"] = {
+            prepend_args = { "--aosp" },
+        },
     },
     formatters_by_ft = {
+        java = { "google-java-format" },
         lua = { "stylua" },
         python = {
             "ruff_format",

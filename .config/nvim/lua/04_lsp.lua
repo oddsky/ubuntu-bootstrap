@@ -30,17 +30,28 @@ vim.diagnostic.config({
     },
 })
 
+local hover = vim.lsp.buf.hover
+vim.lsp.buf.hover = function()
+    return hover({
+        border = "single",
+        -- max_width = 100,
+        max_width = math.floor(vim.o.columns * 0.7),
+        max_height = math.floor(vim.o.lines * 0.7),
+    })
+end
+
 require("mason").setup({})
 require("mason-tool-installer").setup({
     ensure_installed = {
         -- lsp's
-        "bash-language-server",
         "gopls",
         "helm-ls",
-        "lua-language-server",
         "pyright",
-        "yaml-language-server",
+        "bash-language-server",
         "groovy-language-server",
+        "java-language-server",
+        "lua-language-server",
+        "yaml-language-server",
         -- formatters
         "beautysh",
         "cbfmt",
@@ -75,6 +86,22 @@ vim.lsp.config["helm_ls"] = {
 
 vim.lsp.config["groovyls"] = {
     cmd = { "groovy-language-server" },
+}
+
+vim.lsp.config["javals"] = {
+    filetypes = { "java" },
+    cmd = { "java-language-server" },
+    root_markers = {
+        "pom.xml",
+        "build.gradle",
+        "build.gradle.kts",
+        "settings.gradle",
+        "settings.gradle.kts",
+        "WORKSPACE",
+        "WORKSPACE.bazel",
+        ".java-version",
+        ".git",
+    },
 }
 
 vim.lsp.config["ruff"] = {
@@ -138,4 +165,5 @@ vim.lsp.enable({
     "pyright",
     "yamlls",
     "groovyls",
+    "javals",
 })
