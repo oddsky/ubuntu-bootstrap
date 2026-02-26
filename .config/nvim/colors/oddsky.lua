@@ -188,11 +188,12 @@ hl("@tag.delimiter", { fg = c.fg1 })
 hl("@tag.attribute", { fg = c.orange })
 
 -- python
+hl("@attribute.builtin.python", { fg = c.fg1 })
+hl("@attribute.python", { fg = c.fg1 })
+hl("@constant.builtin.python", { fg = c.violet })
 hl("@constructor.python", { fg = c.yellow })
 hl("@module.python", { fg = c.fg1 })
 hl("@string.documentation.python", { link = "Comment" })
-hl("@attribute.python", { fg = c.fg1 })
-hl("@constant.builtin.python", { fg = c.violet })
 
 -- markdown
 hl("@markup.raw.block.markdown", { fg = c.green })
