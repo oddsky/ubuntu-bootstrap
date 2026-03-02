@@ -196,11 +196,11 @@ hl("@module.python", { fg = c.fg1 })
 hl("@string.documentation.python", { link = "Comment" })
 
 -- markdown
-hl("@markup.raw.block.markdown", { fg = c.green })
-hl("@markup.heading.1.markdown", { fg = c.red, italic = true })
-hl("@markup.heading.2.markdown", { fg = c.orange, italic = true })
-hl("@markup.heading.3.markdown", { fg = c.yellow, italic = true })
-hl("@markup.heading.4.markdown", { fg = c.green, italic = true })
+-- hl("@markup.raw.block.markdown", { fg = c.green })
+-- hl("@markup.heading.1.markdown", { fg = c.red, italic = true })
+-- hl("@markup.heading.2.markdown", { fg = c.orange, italic = true })
+-- hl("@markup.heading.3.markdown", { fg = c.yellow, italic = true })
+-- hl("@markup.heading.4.markdown", { fg = c.green, italic = true })
 
 -- json
 hl("@property.json", { fg = c.blue, bold = true })
@@ -265,9 +265,6 @@ hl("@number.yaml", { fg = c.fg1 })
 
 -- toml
 hl("@property.toml", { fg = c.orange })
-
---bash
-hl("@variable.parameter.bash", { fg = c.fg1 })
 
 -- nvim-treesitter-context
 hl("TreesitterContext", { bg = c.bg2 })

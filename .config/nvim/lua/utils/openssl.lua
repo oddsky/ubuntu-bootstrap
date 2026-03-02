@@ -1,3 +1,5 @@
+local M = {}
+
 local Job = require("plenary.job")
 
 local function pop_temp_buff(content)
@@ -34,7 +36,7 @@ local function get_visual_selection()
     return table.concat(lines, "\n")
 end
 
-local function certinfo_to_scratch()
+M.certinfo_to_scratch = function()
     local job_opts = {
         command = "openssl",
         args = { "x509", "-noout", "-subject", "-issuer", "-dates", "-text" },
@@ -56,8 +58,4 @@ local function certinfo_to_scratch()
     Job:new(job_opts):start()
 end
 
-vim.api.nvim_create_user_command(
-    "CertInfo",
-    certinfo_to_scratch,
-    { range = true, desc = "Показать x509-информацию в scratch-буфере" }
-)
+return M

@@ -12,22 +12,18 @@ vim.opt.winborder = "single"
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 
--- search
 vim.opt.ignorecase = true -- Case insensitive search
 vim.opt.smartcase = true -- Case sensitive if uppercase in search
 
--- tabs
 vim.opt.syntax = "ON"
 vim.opt.smartindent = true -- autoindent new lines
 vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.shiftwidth = 4 -- shift 4 spaces when tab
 vim.opt.tabstop = 4 -- 1 tab == 4 spaces
 
--- Split behavior
 vim.opt.splitbelow = true -- Horizontal splits go below
 vim.opt.splitright = true -- Vertical splits go right
 
--- Key mappings
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set local leader key (NEW)
 
