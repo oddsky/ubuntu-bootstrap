@@ -3,17 +3,12 @@
 find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
 find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
 
-dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
-dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
-dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
+sudo apt install -y sway swaylock swayidle pavucontrol pulseaudio-utils \
+    evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
+    ripgrep curl sqlite3 golang-go \
+    openjdk-21-jdk maven python3-venv \
 
-sudo apt install -y alacritty evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
-    ripgrep curl tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk maven python3-venv \
-    gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
-
-sudo snap install pinta telegram-desktop
+    sudo snap install pinta telegram-desktop
 
 NAME="arch-tools"
 PACKAGE="kubectl helm helmfile sops k9s dive uv"
