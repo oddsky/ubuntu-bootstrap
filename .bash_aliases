@@ -1,6 +1,6 @@
 PS1='\[\e[90m\]($?)\[\e[0m\] \[\e[94m\]\W\[\e[0m\]\$ '
 
-export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
+export PATH="~/.local/bin/:~/.local/share/nvim/mason/bin/:$PATH"
 export EDITOR="nvim"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"

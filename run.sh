@@ -21,8 +21,8 @@ podman container exists $NAME && podman start -ai $NAME \
     || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
 tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin/{}
 
-uv tool install --force tldr
-uv tool install --force --python python3.12 aider-chat
+~/.local/bin/uv tool install --force tldr
+~/.local/bin/uv tool install --force --python python3.12 aider-chat
 
 helm plugin install https://github.com/databus23/helm-diff || true
 
@@ -38,18 +38,15 @@ if [ ! -f /usr/bin/ktalk ]; then
     sudo apt install -y /tmp/ktalk.deb
 fi
 
-if [ ! -d /opt/nvim ]; then
+if [ ! -d ~/.local/opt/nvim ]; then
     URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz"
     wget "$URL" -O /tmp/nvim.tar.gz
-    sudo mkdir /opt/nvim
-    sudo tar xzvf /tmp/nvim.tar.gz -C /opt/nvim
-    sudo ln -sfr /opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
+    tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
+    ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 fi
 
-if [ ! -d /opt/pytimesched ]; then
+if [ ! -d ~/.local/opt/pytimesched ]; then
     URL="https://gitlab.com/ilmenshik/pytimesched/-/jobs/3568673400/artifacts/raw/pyTimeSched-v0.6-linux.tar.gz"
     wget "$URL" -O /tmp/pyTimeSched.tar.gz
-    sudo mkdir /opt/pytimesched
-    sudo tar xzvf /tmp/pyTimeSched.tar.gz -C /opt/pytimesched
-    sudo chown -R $USER:$USER /opt/pytimesched
+    tar xzf /tmp/pyTimeSched.tar.gz -C ~/.local/opt/pytimesched/
 fi
