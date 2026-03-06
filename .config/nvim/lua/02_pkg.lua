@@ -48,27 +48,41 @@ require("blink.cmp").setup({
 })
 
 pak({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "master" } })
-require("nvim-treesitter.configs").setup({
-    ensure_installed = {
+require("nvim-treesitter").install({
+    "bash",
+    "go",
+    "groovy",
+    "helm",
+    "java",
+    "json",
+    "lua",
+    "luadoc",
+    "make",
+    "markdown",
+    "python",
+    "toml",
+    "yaml",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
         "bash",
+        "sh",
         "go",
         "groovy",
         "helm",
         "java",
         "json",
-        "jsonc",
         "lua",
         "luadoc",
         "make",
         "markdown",
-        "markdown_inline",
         "python",
         "toml",
-        "vim",
-        "vimdoc",
         "yaml",
     },
-    highlight = { enable = true },
+    callback = function()
+        vim.treesitter.start()
+    end,
 })
 
 pak({ "https://github.com/stevearc/conform.nvim" })
