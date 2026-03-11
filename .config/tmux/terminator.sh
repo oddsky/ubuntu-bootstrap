@@ -18,7 +18,7 @@ if [[ $RESULT = "" ]]; then
     exit
 elif [[ $RESULT == "/"* ]]; then
     SEL=$(basename "$RESULT" | tr "[:upper:]:. " "[:lower:]---")
-    tmux has-session -t "$SEL" 2>/dev/null || tmux new-session -d -s "$SEL" -c "$RESULT"
+    tmux new-session -d -s "$SEL" -c "$RESULT"
 else
     SEL=$(cut -d' ' -f 2 <<< $RESULT)
 fi

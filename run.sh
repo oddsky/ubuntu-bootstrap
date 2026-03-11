@@ -15,11 +15,10 @@ sudo apt install -y alacritty evolution-ews keepassxc podman-docker wl-clipboard
 
 sudo snap install pinta telegram-desktop
 
-NAME="arch-tools"
 PACKAGE="kubectl helm helmfile sops k9s dive uv"
-podman container exists $NAME && podman start -ai $NAME \
-    || podman run --name $NAME archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
-tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin/{}
+podman container exists archtool && podman start -ai archtool \
+    || podman run --name archtool archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
+tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
 
 ~/.local/bin/uv tool install --force tldr
 ~/.local/bin/uv tool install --force awscli
