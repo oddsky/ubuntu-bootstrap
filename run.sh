@@ -22,7 +22,8 @@ podman container exists $NAME && podman start -ai $NAME \
 tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp $NAME:/usr/bin/{} ~/.local/bin/{}
 
 ~/.local/bin/uv tool install --force tldr
-~/.local/bin/uv tool install --force --python python3.12 aider-chat
+~/.local/bin/uv tool install --force awscli
+~/.local/bin/uv tool install --force aider-chat
 
 helm plugin install https://github.com/databus23/helm-diff || true
 
