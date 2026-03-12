@@ -136,9 +136,20 @@ require("neo-tree").setup({
         filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = false,
-            hide_by_name = { ".git" },
-            hide_by_pattern = { ".aider*" },
-            always_show_by_pattern = { ".env*" },
+            hide_by_name = {
+                ".git",
+                ".venv",
+                ".idea",
+                ".ruff_cache",
+                "__pycache__",
+            },
+            hide_by_pattern = {
+                ".aider*",
+                "*egg-info*",
+            },
+            always_show_by_pattern = {
+                ".env*",
+            },
             always_show = {
                 ".dockerignore",
                 ".gitignore",

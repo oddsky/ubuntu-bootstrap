@@ -23,7 +23,7 @@ vim.keymap.set("n", "gS", require("mini.splitjoin").toggle)
 vim.keymap.set("n", "fr", function()
     require("conform").format({
         async = true,
-        lsp_format = "fallback",
+        lsp_format = "never",
     })
 end)
 
