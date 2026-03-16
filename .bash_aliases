@@ -4,7 +4,7 @@ export PATH="~/.local/bin/:~/.local/share/nvim/mason/bin/:$PATH"
 export EDITOR="nvim"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
-export FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down'
+FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --color=bw'
 
 export AIDER_DARK_MODE=true
 export AIDER_OPENAI_API_KEY=$(cat ~/places/.proxyapi_key)

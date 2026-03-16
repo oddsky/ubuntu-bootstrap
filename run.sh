@@ -9,7 +9,7 @@ dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shif
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 
-sudo apt install -y alacritty evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
+sudo apt install -y evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
     ripgrep curl tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk maven python3-venv \
     gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
@@ -24,12 +24,18 @@ tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/
 ~/.local/bin/uv tool install --force awscli
 ~/.local/bin/uv tool install --force aider-chat
 
-helm plugin install https://github.com/databus23/helm-diff || true
+helm plugin install --verify=false https://github.com/databus23/helm-diff || true
 
 if [ ! -f ~/.fonts/README.md ]; then
     URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
     wget "$URL" -O /tmp/font.zip
     unzip /tmp/font.zip -d ~/.fonts
+fi
+
+if [ ! -f /usr/bin/ghostty ]; then
+    URL="https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.3.1-0-ppa1/ghostty_1.3.1-0.ppa1_amd64_25.10.deb"
+    wget "$URL" -O /tmp/ktalk.deb
+    sudo apt install -y /tmp/ktalk.deb
 fi
 
 if [ ! -f /usr/bin/ktalk ]; then
