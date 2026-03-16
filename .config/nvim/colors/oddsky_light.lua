@@ -11,11 +11,11 @@ local colors = {
     visual       =  "#d9e6f2",
     bg_diff_add  =  "#bcdcbc",
     bg_diff_del  =  "#ebadad",
-    bg1          =  "#ffffff",
+    bg1          =  "#feffff",
     bg2          =  "#e6e6e6",
     bg3          =  "#b3b3b3",
     bg4          =  "#999999",
-    fg2          =  "#737373",
+    fg2          =  "#8c8c8c",
     fg1          =  "#1a1a1a",
 }
 -- stylua: ignore end

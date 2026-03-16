@@ -1,6 +1,7 @@
-theme = "dark:Nord Wave,light:Apple System Colors Light"
-font-family = "JetBrainsMonoNL Nerd Font"
-font-size = 11.5
+theme = "dark:Apple System Colors,light:Apple System Colors Light"
+# font-family = "Comic Mono"
+font-family = "Comic Shanns Mono"
+font-size = 13
 command = "tmux"
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 1
