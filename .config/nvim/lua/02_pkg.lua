@@ -1,6 +1,7 @@
 local pak = vim.pack.add
 
 pak({
+    "https://github.com/norcalli/nvim-colorizer.lua",
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/nvim-lua/plenary.nvim",
@@ -47,26 +48,10 @@ require("blink.cmp").setup({
     },
 })
 
-pak({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "master" } })
-require("nvim-treesitter").install({
-    "bash",
-    "go",
-    "groovy",
-    "helm",
-    "java",
-    "json",
-    "lua",
-    "luadoc",
-    "make",
-    "markdown",
-    "python",
-    "toml",
-    "yaml",
-})
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {
+pak({ { src = "https://github.com/nvim-treesitter/nvim-treesitter" } })
+require("nvim-treesitter.configs").setup({
+    ensure_installed = {
         "bash",
-        "sh",
         "go",
         "groovy",
         "helm",
@@ -80,9 +65,9 @@ vim.api.nvim_create_autocmd("FileType", {
         "toml",
         "yaml",
     },
-    callback = function()
-        vim.treesitter.start()
-    end,
+    highlight = {
+        enable = true,
+    },
 })
 
 pak({ "https://github.com/stevearc/conform.nvim" })
