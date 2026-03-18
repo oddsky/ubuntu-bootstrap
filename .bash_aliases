@@ -6,7 +6,7 @@ export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
 FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --color=bw'
 
-export AIDER_DARK_MODE=true
+export AIDER_MULTILINE=true
 export AIDER_OPENAI_API_KEY=$(cat ~/places/.proxyapi_key)
 export AIDER_OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1"
 export AIDER_MODEL="openai/gemini/gemini-3-flash-preview"
