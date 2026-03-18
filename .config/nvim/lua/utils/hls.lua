@@ -180,11 +180,11 @@ M.load = function(colors)
     hl("@string.documentation.python", { link = "Comment" })
 
     -- markdown
-    -- hl("@markup.raw.block.markdown", { fg = c.green })
-    -- hl("@markup.heading.1.markdown", { fg = c.red, italic = true })
-    -- hl("@markup.heading.2.markdown", { fg = c.orange, italic = true })
-    -- hl("@markup.heading.3.markdown", { fg = c.yellow, italic = true })
-    -- hl("@markup.heading.4.markdown", { fg = c.green, italic = true })
+    hl("@markup.raw.block.markdown", { fg = colors.red })
+    hl("@markup.heading.1.markdown", { fg = colors.red, italic = true })
+    hl("@markup.heading.2.markdown", { fg = colors.orange, italic = true })
+    hl("@markup.heading.3.markdown", { fg = colors.yellow, italic = true })
+    hl("@markup.heading.4.markdown", { fg = colors.green, italic = true })
 
     -- json
     hl("@property.json", { fg = colors.blue, bold = true })
