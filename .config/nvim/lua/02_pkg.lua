@@ -39,19 +39,30 @@ pak({ { src = "https://github.com/saghen/blink.cmp", version = vim.version.range
 require("blink.cmp").setup({
     keymap = { preset = "super-tab" },
     sources = {
-        default = {
-            "lsp",
-            "path",
-            "snippets",
-            "buffer",
-        },
+        default = { "lsp", "path", "snippets", "buffer" },
     },
 })
 
-pak({ { src = "https://github.com/nvim-treesitter/nvim-treesitter" } })
-require("nvim-treesitter.configs").setup({
-    ensure_installed = {
+pak({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+require("nvim-treesitter").install({
+    "bash",
+    "go",
+    "groovy",
+    "helm",
+    "java",
+    "json",
+    "lua",
+    "luadoc",
+    "make",
+    "markdown",
+    "python",
+    "toml",
+    "yaml",
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
         "bash",
+        "sh",
         "go",
         "groovy",
         "helm",
@@ -65,9 +76,9 @@ require("nvim-treesitter.configs").setup({
         "toml",
         "yaml",
     },
-    highlight = {
-        enable = true,
-    },
+    callback = function()
+        vim.treesitter.start()
+    end,
 })
 
 pak({ "https://github.com/stevearc/conform.nvim" })

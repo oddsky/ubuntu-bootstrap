@@ -9,16 +9,16 @@ dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shif
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 
-sudo apt install -y evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
+sudo apt install -y evolution-ews keepassxc podman-docker wl-clipboard fzf npm showtime \
     ripgrep curl tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk maven python3-venv \
     gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
 
-PACKAGE="kubectl helm helmfile sops k9s dive uv"
+pkgs="kubectl helm helmfile sops k9s dive uv"
 podman container exists archtool && podman start -ai archtool \
-    || podman run --name archtool archlinux:latest pacman -Sy --noconfirm --needed -dd $PACKAGE
-tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
+    || podman run --name archtool archlinux:latest pacman -Sy --noconfirm --needed -dd $pkgs
+tr ' ' '\n' <<<$pkgs | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
 
 ~/.local/bin/uv tool install --force tldr
 ~/.local/bin/uv tool install --force awscli
@@ -26,10 +26,10 @@ tr ' ' '\n' <<<$PACKAGE | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/
 
 helm plugin install --verify=false https://github.com/databus23/helm-diff || true
 
-if [ ! -f ~/.fonts/README.md ]; then
-    URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
-    wget "$URL" -O /tmp/font.zip
-    unzip /tmp/font.zip -d ~/.fonts
+if [ ! -f ~/.fonts/ComicShannsMono-Regular.ttf ]; then
+    URL="https://github.com/jesusmgg/comic-shanns-mono/releases/download/v1.3.0/comic-shanns-mono-v1.3.0.zip"
+    wget "$URL" -O /tmp/comic.zip
+    unzip /tmp/comic.zip -d ~/.fonts
 fi
 
 if [ ! -f /usr/bin/ghostty ]; then
