@@ -34,6 +34,14 @@ if [ ! -f /tmp/comp ]; then
 fi
 source /tmp/comp
 
+dark() {
+    echo 'general.import = ["themes/oddsky_dark.toml"]' > ~/.config/alacritty/current_theme.toml
+}
+
+light() {
+    echo 'general.import = ["themes/oddsky_light.toml"]' > ~/.config/alacritty/current_theme.toml
+}
+
 git_clean() {
     BRANCH=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|^origin/||')
     git checkout "$BRANCH" && git pull

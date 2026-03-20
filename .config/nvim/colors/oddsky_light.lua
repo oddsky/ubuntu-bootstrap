@@ -1,10 +1,10 @@
 -- stylua: ignore start
 local colors = {
-    red          =  "#cc372e",
-    orange       =  "#e17d19",
+    red          =  "#bb2a2a",
+    orange       =  "#cf7317",
     yellow       =  "#cdac08",
-    green        =  "#26a439",
-    cyan         =  "#089dcb",
+    green        =  "#22912b",
+    cyan         =  "#0785ab",
     blue         =  "#0869cb",
     violet       =  "#9647bf",
     search       =  "#f5f4d6",

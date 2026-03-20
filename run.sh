@@ -9,8 +9,9 @@ dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shif
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
 
-sudo apt install -y evolution-ews keepassxc podman-docker wl-clipboard fzf npm showtime \
-    ripgrep curl tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk maven python3-venv \
+sudo apt install -y \
+    alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf ripgrep \
+    npm curl tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk maven python3-venv \
     gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
@@ -30,12 +31,6 @@ if [ ! -f ~/.fonts/ComicShannsMono-Regular.ttf ]; then
     URL="https://github.com/jesusmgg/comic-shanns-mono/releases/download/v1.3.0/comic-shanns-mono-v1.3.0.zip"
     wget "$URL" -O /tmp/comic.zip
     unzip /tmp/comic.zip -d ~/.fonts
-fi
-
-if [ ! -f /usr/bin/ghostty ]; then
-    URL="https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.3.1-0-ppa1/ghostty_1.3.1-0.ppa1_amd64_25.10.deb"
-    wget "$URL" -O /tmp/ktalk.deb
-    sudo apt install -y /tmp/ktalk.deb
 fi
 
 if [ ! -f /usr/bin/ktalk ]; then
