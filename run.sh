@@ -17,9 +17,14 @@ sudo apt install -y \
 sudo snap install pinta telegram-desktop
 
 pkgs="kubectl helm helmfile sops k9s dive uv"
-podman container exists archtool && podman start -ai archtool \
-    || podman run --name archtool archlinux:latest pacman -Sy --noconfirm --needed -dd $pkgs
-tr ' ' '\n' <<<$pkgs | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
+if [ ! $(podman container exists archtool) ]; then
+    podman start -ai archtool
+else
+    podman run --name archtool -v "$PWD/mirrorlist:/etc/pacman.d/mirrorlist" archlinux:latest \
+        pacman -Sy --noconfirm --needed -dd $pkgs
+fi
+echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
+
 
 ~/.local/bin/uv tool install --force tldr
 ~/.local/bin/uv tool install --force awscli
