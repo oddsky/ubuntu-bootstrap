@@ -3,15 +3,17 @@
 find -type d ! -path '*.git/*' | xargs --verbose -I{} mkdir -p ~/{}
 find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
 
-dconf write "/org/gnome/desktop/input-sources/xkb-options" "['caps:swapescape']"
-dconf write "/org/gnome/desktop/wm/keybindings/close" "['<Shift><Super>q']"
-dconf write "/org/gnome/desktop/wm/keybindings/switch-input-source" "['<Alt>Shift_L']"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/calculator" "['<Super>c']"
-dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "['<Super>e']"
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
+dconf write /org/gnome/desktop/wm/keybindings/close "['<Shift><Super>q']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-input-source "['<Alt>Shift_L']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/calculator "['<Super>c']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
+dconf write /org/gnome/desktop/background/picture-uri-dark "'file:///usr/share/backgrounds/Questing_Quokka_Full_Dark_3840x2160.png'"
+dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/Questing_Quokka_Full_Dimmed_3840x2160.png'"
 
 sudo apt install -y \
-    alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf ripgrep \
-    npm curl tmux skopeo ansible sqlite3 golang-go openjdk-21-jdk maven python3-venv \
+    alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf awscli \
+    ripgrep npm curl tmux skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
     gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
@@ -25,18 +27,10 @@ else
 fi
 echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
 
-
 ~/.local/bin/uv tool install --force tldr
-~/.local/bin/uv tool install --force awscli
 ~/.local/bin/uv tool install --force aider-chat
 
 helm plugin install --verify=false https://github.com/databus23/helm-diff || true
-
-if [ ! -f ~/.fonts/ComicShannsMono-Regular.ttf ]; then
-    URL="https://github.com/jesusmgg/comic-shanns-mono/releases/download/v1.3.0/comic-shanns-mono-v1.3.0.zip"
-    wget "$URL" -O /tmp/comic.zip
-    unzip /tmp/comic.zip -d ~/.fonts
-fi
 
 if [ ! -f /usr/bin/ktalk ]; then
     URL="https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb"
