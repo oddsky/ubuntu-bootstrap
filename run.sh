@@ -14,7 +14,7 @@ dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgr
 sudo apt install -y \
     alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf awscli \
     ripgrep npm curl tmux skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
-    gnome-shell-extensions network-manager-openconnect-gnome gnome-browser-connector
+    network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
 
