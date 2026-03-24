@@ -9,7 +9,7 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-input-source "['<Alt>Shift_
 dconf write /org/gnome/settings-daemon/plugins/media-keys/calculator "['<Super>c']"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
 dconf write /org/gnome/desktop/background/picture-uri-dark "'file:///usr/share/backgrounds/Questing_Quokka_Full_Dark_3840x2160.png'"
-dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/Questing_Quokka_Full_Dimmed_3840x2160.png'"
+dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/Questing_Quokka_Full_Light_3840x2160.png'"
 
 sudo apt install -y \
     alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf awscli \
