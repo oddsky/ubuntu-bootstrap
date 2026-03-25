@@ -2,7 +2,7 @@ local obj = vim.system({ "gsettings", "get", "org.gnome.desktop.interface", "col
 if obj.code == 0 and obj.stdout:find("default") then
     vim.cmd.colorscheme("oddsky_light")
 else
-    vim.cmd.colorscheme("oddsky")
+    vim.cmd.colorscheme("oddsky_dark")
 end
 
 vim.opt.cursorline = true -- Highlight current line
