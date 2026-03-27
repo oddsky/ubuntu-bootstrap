@@ -23,6 +23,8 @@ export AIDER_ANALYTICS=false
 export AIDER_CHECK_UPDATE=false
 export AIDER_WATCH_FILES=true
 
+export BAT_THEME="base16-256"
+
 alias v='nvim'
 alias s='ssh'
 alias vv='test -d .venv && source .venv/bin/activate || deactivate'
