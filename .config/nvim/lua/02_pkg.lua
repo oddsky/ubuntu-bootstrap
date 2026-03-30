@@ -139,10 +139,7 @@ require("neo-tree").setup({
                 ".ruff_cache",
                 "__pycache__",
             },
-            hide_by_pattern = {
-                ".aider*",
-                "*egg-info*",
-            },
+            hide_by_pattern = { "*egg-info*" },
             always_show_by_pattern = {
                 ".env*",
             },

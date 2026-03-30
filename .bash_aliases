@@ -4,26 +4,8 @@ export PATH="~/.local/bin/:~/.local/share/nvim/mason/bin/:$PATH"
 export EDITOR="nvim"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
-FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --color=bw'
-
-export AIDER_MULTILINE=true
-export AIDER_OPENAI_API_KEY=$(cat ~/places/.proxyapi_key)
-export AIDER_OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1"
-export AIDER_MODEL="openai/gemini/gemini-3-flash-preview"
-export AIDER_WEAK_MODEL="openai/gemini/gemini-2.5-flash-lite"
-export AIDER_SHOW_MODEL_WARNINGS=false
-export AIDER_CHECK_MODEL_ACCEPTS_SETTINGS=false
-export AIDER_EDIT_FORMAT="diff-fenced"
-export AIDER_MAP_TOKENS=1024
-export OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1"
-export AIDER_GITIGNORE=false
-export AIDER_AUTO_COMMITS=false
-export AIDER_AUTO_LINT=false
-export AIDER_ANALYTICS=false
-export AIDER_CHECK_UPDATE=false
-export AIDER_WATCH_FILES=true
-
 export BAT_THEME="base16-256"
+FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --color=bw'
 
 alias v='nvim'
 alias s='ssh'
@@ -35,6 +17,15 @@ if [ ! -f /tmp/comp ]; then
     fzf --bash >> /tmp/comp
 fi
 source /tmp/comp
+
+claude() {
+    docker run \
+        --network host --rm -it \
+        -v "$(pwd):/workspace" \
+        -v "$HOME/.claude:/claude" \
+        -e "CLAUDE_CONFIG_DIR=/claude" \
+        nezhar/claude-container:1.6.9 bash
+}
 
 dark() {
     echo 'general.import = ["themes/oddsky_dark.toml"]' > ~/.config/alacritty/current_theme.toml
