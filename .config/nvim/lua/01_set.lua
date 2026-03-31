@@ -49,13 +49,20 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.filetype.add({
     pattern = {
         [".*/templates/.*%.tpl"] = "helm",
-        [".*/templates/.*%.ya?ml"] = "helm",
-        [".*/values/.*%.ya?ml.gotmpl"] = "helm",
-        [".*/values/.*%.ya?ml"] = "helm",
-        [".*/helmfiles?/.*%.ya?ml"] = "helm",
-        [".*/helmfiles?/.*%.ya?ml.gotmpl"] = "helm",
-        ["helmfile.*%.ya?ml"] = "helm",
-        ["helmfile.*%.ya?ml.gotmpl"] = "helm",
+        [".*/templates/.*%.yaml"] = "helm",
+
+        [".*/values/.*%.yaml.gotmpl"] = "helm",
+        [".*/values/.*%.yaml"] = "helm",
+
+        [".*/helm%-defaults/.*%.yaml.gotmpl"] = "helm",
+        [".*/helm%-defaults/.*%.yaml"] = "helm",
+
+        [".*/helmfiles?/.*%.yaml.gotmpl"] = "helm",
+        [".*/helmfiles?/.*%.yaml"] = "helm",
+
+        ["helmfile.*%.yaml.gotmpl"] = "helm",
+        ["helmfile.*%.yaml"] = "helm",
+
         ["values.yaml.gotmpl"] = "helm",
     },
 })
