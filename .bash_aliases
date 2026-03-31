@@ -19,12 +19,14 @@ fi
 source /tmp/comp
 
 claude() {
-    podman run \
-        --network host --rm -it \
+    podman run --rm -it \
+        --network host \
+        --userns=keep-id \
+        --entrypoint /bin/bash \
         -v "$(pwd):/workspace:rw" \
         -v "$HOME/.claude:/claude:rw" \
-        -e "CLAUDE_CONFIG_DIR=/claude" \
-        nezhar/claude-container:1.6.9 bash
+        -e CLAUDE_CONFIG_DIR=/claude \
+        nezhar/claude-container:1.6.9
 }
 
 dark() {
