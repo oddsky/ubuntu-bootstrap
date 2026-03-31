@@ -31,7 +31,3 @@ URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_6
 wget "$URL" -O /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
 ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
-
-URL="https://gitlab.com/ilmenshik/pytimesched/-/jobs/3568673400/artifacts/raw/pyTimeSched-v0.6-linux.tar.gz"
-wget "$URL" -O /tmp/pyTimeSched.tar.gz
-tar xzf /tmp/pyTimeSched.tar.gz -C ~/.local/opt/pytimesched/
