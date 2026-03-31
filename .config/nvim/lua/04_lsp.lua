@@ -57,6 +57,7 @@ require("mason-tool-installer").setup({
         "cbfmt",
         "fixjson",
         "gofumpt",
+        "google-java-format",
         "ruff",
         "sqlfmt",
         "stylua",
