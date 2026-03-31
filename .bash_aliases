@@ -19,10 +19,10 @@ fi
 source /tmp/comp
 
 claude() {
-    docker run \
+    podman run \
         --network host --rm -it \
-        -v "$(pwd):/workspace" \
-        -v "$HOME/.claude:/claude" \
+        -v "$(pwd):/workspace:rw" \
+        -v "$HOME/.claude:/claude:rw" \
         -e "CLAUDE_CONFIG_DIR=/claude" \
         nezhar/claude-container:1.6.9 bash
 }
