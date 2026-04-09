@@ -13,7 +13,6 @@ vim.opt.scrolloff = 999 -- Keep cursor in the middle of the screen
 vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 
-vim.opt.winborder = "single"
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 

@@ -11,12 +11,8 @@ pak({
 pak({ "https://github.com/nvim-treesitter/nvim-treesitter-context" })
 require("treesitter-context").setup({ multiline_threshold = 5 })
 
-pak({ "https://github.com/ThePrimeagen/harpoon" })
-require("harpoon").setup({
-    menu = {
-        width = math.floor(vim.o.columns * 0.7),
-    },
-})
+pak({ { src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" } })
+require("harpoon").setup()
 
 pak({ "https://github.com/rachartier/tiny-inline-diagnostic.nvim" })
 require("tiny-inline-diagnostic").setup({
@@ -37,10 +33,8 @@ require("mini.comment").setup() -- Comment lines
 
 pak({ { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.0") } })
 require("blink.cmp").setup({
-    keymap = { preset = "super-tab" },
-    sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
-    },
+    keymap = { preset = "default" },
+    signature = { enabled = true },
 })
 
 pak({ "https://github.com/nvim-treesitter/nvim-treesitter" })
@@ -111,14 +105,7 @@ require("fzf-lua").setup({
         follow = true,
     },
     grep = { follow = true },
-    winopts = {
-        border = "single",
-        fullscreen = true,
-        preview = {
-            border = "single",
-            scrollbar = false,
-        },
-    },
+    winopts = { fullscreen = true },
 })
 
 pak({

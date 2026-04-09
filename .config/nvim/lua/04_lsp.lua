@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
         vim.keymap.set("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", opts)
         vim.keymap.set("n", "gi", "<CMD>FzfLua lsp_implementations<CR>", opts)
-        vim.keymap.set("n", "gt", "<CMD>FzfLua lsp_typedefs<CR>", opts)
+        vim.keymap.set("n", "gy", "<CMD>FzfLua lsp_typedefs<CR>", opts)
         vim.keymap.set("n", "gr", "<CMD>FzfLua lsp_references<CR>", opts)
         vim.keymap.set("n", "gs", "<CMD>lua vim.lsp.buf.signature_help()<CR>", opts)
         vim.keymap.set("n", "<F2>", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
@@ -34,7 +34,6 @@ local hover = vim.lsp.buf.hover
 vim.lsp.buf.hover = function()
     return hover({
         border = "single",
-        -- max_width = 100,
         max_width = math.floor(vim.o.columns * 0.7),
         max_height = math.floor(vim.o.lines * 0.7),
     })
