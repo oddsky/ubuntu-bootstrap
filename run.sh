@@ -31,7 +31,7 @@ URL="https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb"
 wget "$URL" -O /tmp/ktalk.deb
 sudo apt install -y /tmp/ktalk.deb
 
-URL="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.tar.gz"
+URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz"
 wget "$URL" -O /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
 ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
