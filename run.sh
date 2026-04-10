@@ -23,6 +23,10 @@ echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~
 
 helm plugin install --verify=false https://github.com/databus23/helm-diff || true
 
+URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
+wget "$URL" -O /tmp/font.zip
+unzip /tmp/font.zip -d ~/.fonts
+
 URL="https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb"
 wget "$URL" -O /tmp/ktalk.deb
 sudo apt install -y /tmp/ktalk.deb
