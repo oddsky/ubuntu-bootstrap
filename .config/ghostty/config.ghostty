@@ -1,0 +1,5 @@
+font-family = "JetBrainsMono Nerd Font"
+font-size = 11.5
+font-feature = -calt, -liga, -dlig
+gtk-titlebar = false
+mouse-hide-while-typing = true

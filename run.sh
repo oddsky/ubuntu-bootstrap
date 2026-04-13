@@ -10,7 +10,7 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/calculator "['<Super>c
 dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
 
 sudo apt install -y \
-    alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf awscli \
+    evolution-ews keepassxc showtime podman-docker wl-clipboard fzf awscli \
     ripgrep npm curl tmux skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
     network-manager-openconnect-gnome gnome-browser-connector
 
@@ -22,6 +22,10 @@ podman run --replace --name arch -v "$PWD/mirrorlist:/etc/pacman.d/mirrorlist" a
 echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
 
 helm plugin install --verify=false https://github.com/databus23/helm-diff || true
+
+URL="https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.3.1-0-ppa2/ghostty_1.3.1-0.ppa2_amd64_25.10.deb"
+wget "$URL" -O /tmp/ghostty.deb
+sudo apt install -y /tmp/ghostty.deb
 
 URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
 wget "$URL" -O /tmp/font.zip
