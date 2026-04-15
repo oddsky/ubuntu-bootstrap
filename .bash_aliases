@@ -23,10 +23,21 @@ claude() {
         --network host \
         --userns=keep-id \
         --entrypoint /bin/bash \
-        -v "$(pwd):/workspace:rw" \
+        -v "$PWD:/workspace:rw" \
         -v "$HOME/.claude:/claude:rw" \
         -e CLAUDE_CONFIG_DIR=/claude \
         nezhar/claude-container:1.6.9
+}
+
+nvpd() {
+    podman build -f Dockerfile -t localhost/neovim:latest
+    podman run --rm -it \
+        -v "$HOME/places/git/personal/ubuntu-bootstrap/.config/nvim:/root/.config/nvim" \
+        -v "$HOME/.local/share/nvim:/root/.local/share/nvim" \
+        -v "$HOME/.local/state/nvim:/root/.local/state/nvim" \
+        -v "$HOME/.cache/nvim:/root/.cache/nvim" \
+        -v "$PWD:/workspace" \
+        localhost/neovim:latest
 }
 
 dark() {

@@ -1,0 +1,102 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "49f211fe5d729df53df4c042d7c3464cf47d199e",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 1.1.0"
+    },
+    "blink.indent": {
+      "rev": "c3d4f80bd15c1224f6d8a817ebb4edb31d081096",
+      "src": "https://github.com/saghen/blink.indent"
+    },
+    "conform.nvim": {
+      "rev": "cde4da5c1083d3527776fee69536107d98dae6c9",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "fzf-lua": {
+      "rev": "996b2366489324983ac1a555cf4d156fe3786fa0",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gitsigns.nvim": {
+      "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "harpoon": {
+      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
+      "src": "https://github.com/ThePrimeagen/harpoon",
+      "version": "'harpoon2'"
+    },
+    "lspsaga.nvim": {
+      "rev": "8efe00d6aed9db6449969f889170f1a7e43101a1",
+      "src": "https://github.com/nvimdev/lspsaga.nvim"
+    },
+    "mason-tool-installer.nvim": {
+      "rev": "517ef5994ef9d6b738322664d5fdd948f0fdeb46",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
+    "mason.nvim": {
+      "rev": "ad7146aa61dcaeb54fa900144d768f040090bff0",
+      "src": "https://github.com/williamboman/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "68d4478920c7afdfa21c13706464e275d9ce3255",
+      "src": "https://github.com/echasnovski/mini.nvim"
+    },
+    "neo-tree.nvim": {
+      "rev": "f3df514fff2bdd4318127c40470984137f87b62e",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
+    "nnn.nvim": {
+      "rev": "efe690293eee87558f034a83ed96157e52639cdb",
+      "src": "https://github.com/luukvbaal/nnn.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-colorizer.lua": {
+      "rev": "a065833f35a3a7cc3ef137ac88b5381da2ba302e",
+      "src": "https://github.com/norcalli/nvim-colorizer.lua"
+    },
+    "nvim-lspconfig": {
+      "rev": "2010fc6ec03e2da552b4886fceb2f7bc0fc2e9c0",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-spectre": {
+      "rev": "72f56f7585903cd7bf92c665351aa585e150af0f",
+      "src": "https://github.com/nvim-pack/nvim-spectre"
+    },
+    "nvim-surround": {
+      "rev": "fcfa7e02323d57bfacc3a141f8a74498e1522064",
+      "src": "https://github.com/kylechui/nvim-surround"
+    },
+    "nvim-treesitter": {
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-context": {
+      "rev": "64dd4cf3f6fd0ab17622c5ce15c91fc539c3f24a",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "nvim-web-devicons": {
+      "rev": "8dcb311b0c92d460fac00eac706abd43d94d68af",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "nvim-window-picker": {
+      "rev": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec",
+      "src": "https://github.com/s1n7ax/nvim-window-picker"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "tiny-inline-diagnostic.nvim": {
+      "rev": "08e65d82d48416ab140b3dea26eea4fb9739bc47",
+      "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
+    }
+  }
+}
