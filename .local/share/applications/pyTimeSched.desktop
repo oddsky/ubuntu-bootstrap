@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=pyTimeSched
+Exec=/home/rrossamakhin/.local/opt/pytimesched/pyTimeSched
+Icon=/home/rrossamakhin/.local/opt/pytimesched/gui/icons/icon.png
+Terminal=false
+Type=Application
