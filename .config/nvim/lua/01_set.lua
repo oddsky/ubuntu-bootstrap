@@ -1,10 +1,3 @@
--- local obj = vim.system({ "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" }):wait()
--- if obj.code == 0 and obj.stdout:find("default") then
---     vim.cmd.colorscheme("oddsky_light")
--- else
---     vim.cmd.colorscheme("oddsky_dark")
--- end
-
 vim.cmd.colorscheme("oddsky_dark")
 vim.opt.cursorline = true -- Highlight current line
 vim.opt.termguicolors = true -- Enable 24-bit colors
