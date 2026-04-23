@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down --reverse --style=minimal --color=bw'
+export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down --reverse --style=minimal'
 
 RESULT=$({
         tmux list-sessions -F '#{?session_attached,❱ #{session_name},}' | sed '/^$/d'

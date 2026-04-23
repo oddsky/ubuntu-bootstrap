@@ -44,7 +44,7 @@ def main():
         stdout=subprocess.PIPE,
         text=True,
         env={
-            "FZF_DEFAULT_OPTS": "--bind=alt-k:up,alt-j:down --reverse --style=minimal --color=bw"
+            "FZF_DEFAULT_OPTS": "--bind=alt-k:up,alt-j:down --reverse --style=minimal"
         },
     )
     stdout, _ = process.communicate(input="\n".join(hosts))

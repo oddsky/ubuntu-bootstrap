@@ -11,7 +11,7 @@ TERM = "xterm-256color"
 hide_when_typing = true
 
 [window]
-decorations = "None"
+decorations_theme_variant = "Dark"
 
 [keyboard]
 bindings = [{ key = "Enter", mods = "Control", action = "ToggleFullscreen" }]

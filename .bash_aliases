@@ -4,8 +4,7 @@ export PATH="~/.local/bin/:~/.local/share/nvim/mason/bin/:$PATH"
 export EDITOR="nvim"
 export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
-export BAT_THEME="base16-256"
-FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --color=bw --wrap'
+FZF_DEFAULT_OPTS='--reverse --bind=alt-k:up,alt-j:down --wrap'
 
 alias v='nvim'
 alias s='ssh'
