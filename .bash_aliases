@@ -18,22 +18,12 @@ fi
 source /tmp/comp
 
 claude() {
+    podman build -f ~/.images/claude/Dockerfile -t localhost/claude:latest .
     podman run --rm -it \
         --network host \
-        --userns=keep-id \
-        --entrypoint /bin/bash \
         -v "$(pwd):/workspace:rw" \
         -v "$HOME/.claude:/claude:rw" \
-        -e CLAUDE_CONFIG_DIR=/claude \
-        nezhar/claude-container:1.6.9
-}
-
-dark() {
-    echo 'general.import = ["themes/oddsky_dark.toml"]' > ~/.config/alacritty/current_theme.toml
-}
-
-light() {
-    echo 'general.import = ["themes/oddsky_light.toml"]' > ~/.config/alacritty/current_theme.toml
+        localhost/claude:latest
 }
 
 git_clean() {
