@@ -17,5 +17,5 @@ decorations_theme_variant = "Dark"
 bindings = [{ key = "Enter", mods = "Control", action = "ToggleFullscreen" }]
 
 [colors.primary]
-background = "#1e1e1e"
+background = '#282725'
 foreground = "#ffffff"
