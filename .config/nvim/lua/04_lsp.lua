@@ -59,6 +59,7 @@ require("mason-tool-installer").setup({
         "google-java-format",
         "ruff",
         "sqlfmt",
+        "yamlfmt",
         "stylua",
         "taplo",
     },

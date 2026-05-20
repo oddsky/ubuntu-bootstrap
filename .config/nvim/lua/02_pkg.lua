@@ -93,6 +93,7 @@ require("conform").setup({
         markdown = { "prettier", "cbfmt" },
         toml = { "taplo" },
         go = { "gofumpt" },
+        yaml = { "yamlfmt" },
     },
 })
 
