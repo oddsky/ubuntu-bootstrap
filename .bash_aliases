@@ -48,8 +48,10 @@ claude() {
     podman build -f ~/.images/claude/Dockerfile -t localhost/claude:latest .
     podman run --rm -it \
         --network host \
-        -v "$(pwd):/workspace:rw" \
+        -w "$(pwd)" \
+        -v "$(pwd):$(pwd):rw" \
         -v "$HOME/.claude:/claude:rw" \
+        -v "$HOME/.local/share/uv:$HOME/.local/share/uv" \
         localhost/claude:latest
 }
 
