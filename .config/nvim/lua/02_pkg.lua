@@ -121,10 +121,12 @@ require("neo-tree").setup({
             hide_dotfiles = false,
             hide_gitignored = false,
             hide_by_name = {
+                ".claude",
                 ".git",
-                ".venv",
                 ".idea",
                 ".ruff_cache",
+                ".serena",
+                ".venv",
                 "__pycache__",
             },
             hide_by_pattern = { "*egg-info*" },
