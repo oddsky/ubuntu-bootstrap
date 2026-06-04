@@ -9,9 +9,8 @@ dconf write /org/gnome/desktop/wm/keybindings/switch-input-source "['<Alt>Shift_
 dconf write /org/gnome/settings-daemon/plugins/media-keys/calculator "['<Super>c']"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
 
-sudo apt install -y \
-    alacritty evolution-ews keepassxc showtime podman-docker wl-clipboard fzf awscli \
-    ripgrep npm curl tmux skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
+sudo apt install -y evolution-ews keepassxc podman-docker wl-clipboard fzf ripgrep \
+    npm curl skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
     network-manager-openconnect-gnome gnome-browser-connector
 
 sudo snap install pinta telegram-desktop
@@ -19,7 +18,7 @@ sudo snap install pinta telegram-desktop
 pkgs="kubectl helm helmfile sops k9s dive uv"
 podman run --replace --name arch -v "$PWD/mirrorlist:/etc/pacman.d/mirrorlist" archlinux \
     pacman -Sy --noconfirm --needed -dd $pkgs
-echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp archtool:/usr/bin/{} ~/.local/bin/{}
+echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp arch:/usr/bin/{} ~/.local/bin/{}
 
 helm plugin install --verify=false https://github.com/databus23/helm-diff || true
 
@@ -35,7 +34,3 @@ URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64
 wget "$URL" -O /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
 ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
-
-URL="https://gitlab.com/ilmenshik/pytimesched/-/jobs/3568673400/artifacts/raw/pyTimeSched-v0.6-linux.tar.gz"
-wget "$URL" -O /tmp/pyTimeSched.tar.gz
-tar xzf /tmp/pyTimeSched.tar.gz -C ~/.local/opt/pytimesched/
