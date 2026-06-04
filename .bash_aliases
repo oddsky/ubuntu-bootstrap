@@ -10,6 +10,7 @@ alias v='nvim'
 alias s='ssh'
 alias vv='test -d .venv && source .venv/bin/activate || deactivate'
 alias py='python3'
+alias sls='screen -ls'
 
 if [ ! -f /tmp/comp ]; then
     kubectl completion bash > /tmp/comp
@@ -50,7 +51,7 @@ claude() {
         --network host \
         -w "$(pwd)" \
         -v "$(pwd):$(pwd):rw" \
-        -v "$HOME/.claude:/claude:rw" \
+        -v "$HOME/places/claude:/claude:rw" \
         -v "$HOME/.local/share/uv:$HOME/.local/share/uv" \
         localhost/claude:latest
 }
