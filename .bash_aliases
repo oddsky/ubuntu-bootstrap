@@ -20,7 +20,8 @@ source /tmp/comp
 
 aider() {
     podman build -f ~/.images/aider/Dockerfile -t localhost/aider:latest .
-    podman run --rm -it \
+    screen -S "aider-$(basename "$(pwd)")-$(date +%s)" \
+        podman run --rm -it \
         --env AIDER_MULTILINE=true \
         --env AIDER_OPENAI_API_KEY=$(cat ~/places/.proxyapi_key) \
         --env AIDER_OPENAI_API_BASE="https://openai.api.proxyapi.ru/v1" \
@@ -47,7 +48,8 @@ aider() {
 
 claude() {
     podman build -f ~/.images/claude/Dockerfile -t localhost/claude:latest .
-    podman run --rm -it \
+    screen -S "claude-$(basename "$(pwd)")-$(date +%s)" \
+        podman run --rm -it \
         --network host \
         -w "$(pwd)" \
         -v "$(pwd):$(pwd):rw" \
