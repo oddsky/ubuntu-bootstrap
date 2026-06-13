@@ -1,0 +1,23 @@
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 11.5
+
+[terminal.shell]
+program = "tmux"
+
+[env]
+TERM = "xterm-256color"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+# decorations_theme_variant = "Dark"
+decorations = "None"
+
+[keyboard]
+bindings = [{ key = "Enter", mods = "Control", action = "ToggleFullscreen" }]
+
+[colors.primary]
+background = '#222225'
+foreground = "#D9D9D9"
