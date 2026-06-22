@@ -13,11 +13,11 @@ hide_when_typing = true
 
 [window]
 decorations = "None"
-startup_mode  =  "Maximized"
+startup_mode = "Maximized"
 
 [keyboard]
 bindings = [{ key = "Enter", mods = "Control", action = "ToggleFullscreen" }]
 
 [colors.primary]
-background = '#222225'
+background = '#1D1D20'
 foreground = "#D9D9D9"
