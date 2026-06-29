@@ -20,17 +20,16 @@ podman run --replace --name arch -v "$PWD/mirrorlist:/etc/pacman.d/mirrorlist" a
     pacman -Sy --noconfirm --needed -dd $pkgs
 echo $pkgs | tr ' ' '\n' | xargs --verbose -I{} podman cp arch:/usr/bin/{} ~/.local/bin/{}
 
+uv tool install tldr
+
 helm plugin install --verify=false https://github.com/databus23/helm-diff || true
 
 URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
-wget "$URL" -O /tmp/font.zip
-unzip /tmp/font.zip -d ~/.fonts
+wget "$URL" -O /tmp/font.zip && unzip /tmp/font.zip -d ~/.fonts
 
 URL="https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb"
-wget "$URL" -O /tmp/ktalk.deb
-sudo apt install -y /tmp/ktalk.deb
+wget "$URL" -O /tmp/ktalk.deb && sudo apt install -y /tmp/ktalk.deb
 
 URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz"
-wget "$URL" -O /tmp/nvim.tar.gz
-tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
+wget "$URL" -O /tmp/nvim.tar.gz && tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
 ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
