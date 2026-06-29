@@ -1,11 +1,5 @@
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search hl
-vim.keymap.set("n", "<leader><Tab>", "<C-^>") -- Swap buffers
-
--- jump to upwards context
-vim.keymap.set("n", "[c", function()
-    require("treesitter-context").go_to_context(vim.v.count1)
-end, { silent = true })
-
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader><Tab>", "<C-^>")
 vim.keymap.set("n", "<leader>e", "<CMD>Neotree float toggle<CR>")
 vim.keymap.set("n", "<leader>E", "<CMD>Neotree float toggle reveal<CR>")
 vim.keymap.set("n", "<leader>Q", "<CMD>Neotree left toggle<CR>")
@@ -19,7 +13,6 @@ vim.keymap.set("n", "<leader>pc", "<CMD>FzfLua grep_cword<CR>")
 vim.keymap.set("n", "<leader>r", "<CMD>FzfLua resume<CR>")
 vim.keymap.set("n", "<leader>G", "<CMD>FzfLua git_branches<CR>")
 vim.keymap.set("n", "<leader>pp", "<CMD>FzfLua<CR>")
--- vim.keymap.set("n", "<leader>d", "<CMD>enew<bar>bd #<CR>")
 vim.keymap.set("n", "<leader>d", require("mini.bufremove").delete)
 vim.keymap.set("n", "gS", require("mini.splitjoin").toggle)
 

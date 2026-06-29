@@ -1,6 +1,6 @@
 [languages]
 lua = ["stylua -s -"]
-sql = ["sqlfmt -"]
+# sql = ["sqlfmt -"]
 sh = ["beautysh -"]
 bash = ["beautysh -"]
 json = ["fixjson"]
