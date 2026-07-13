@@ -78,20 +78,36 @@ vim.api.nvim_create_autocmd("FileType", {
 pak({ "https://github.com/stevearc/conform.nvim" })
 require("conform").setup({
     formatters = {
-        stylua = { prepend_args = { "--indent-type", "Spaces" } },
-        cbfmt = { prepend_args = { "--config", "/home/rrossamakhin/.config/nvim/cbfmt.toml" } },
+        stylua = {
+            prepend_args = {
+                "--indent-type",
+                "Spaces",
+            },
+        },
+        cbfmt = {
+            prepend_args = {
+                "--config",
+                "/home/rrossamakhin/.config/nvim/cbfmt.toml",
+            },
+        },
+        -- mbake = {
+        --     prepend_args = {
+        --         "format",
+        --         "--stdin",
+        --     },
+        -- },
         ["google-java-format"] = { prepend_args = { "--aosp" } },
     },
     formatters_by_ft = {
+        go = { "gofumpt" },
         java = { "google-java-format" },
+        json = { "fixjson" },
         lua = { "stylua" },
+        makefile = { "bake" },
+        markdown = { "prettier", "cbfmt" },
         python = { "ruff_format", "ruff_organize_imports", "ruff_fix" },
         sh = { "beautysh" },
-        -- sql = { "sqlfmt" },
-        json = { "fixjson" },
-        markdown = { "prettier", "cbfmt" },
         toml = { "taplo" },
-        go = { "gofumpt" },
         yaml = { "yamlfmt" },
     },
 })
