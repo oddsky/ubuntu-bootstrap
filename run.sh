@@ -6,6 +6,8 @@ find -type f ! -path '*.git/*' | xargs --verbose -I{} ln -sfr {} ~/{}
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 dconf write /org/gnome/desktop/wm/keybindings/close "['<Shift><Super>q']"
 dconf write /org/gnome/desktop/wm/keybindings/switch-input-source "['<Alt>Shift_L']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/calculator "['<Super>c']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
 
 sudo apt install -y alacritty tmux evolution-ews keepassxc podman-docker wl-clipboard \
     fzf ripgrep npm curl skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
