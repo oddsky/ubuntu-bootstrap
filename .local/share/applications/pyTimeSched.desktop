@@ -2,6 +2,11 @@
 Version=1.0
 Type=Application
 Name=pyTimeSched
+Comment=Time-tracking app
 Icon=/home/rrossamakhin/places/git/work/pytimesched/gui/icons/icon.png
 Exec=/home/rrossamakhin/places/git/work/pytimesched/start.sh
+Categories=Office;Utility;
+Keywords=time;tracker;productivity;
+StartupWMClass=pytimesched
+StartupNotify=true
 Terminal=false
