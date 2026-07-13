@@ -3,13 +3,19 @@
   "provider": {
     "anthropic": {
       "options": {
-        "baseURL": "{env:ANTHROPIC_BASE_URL}",
-        "apiKey": "{env:ANTHROPIC_API_KEY}"
+        "baseURL": "https://api.proxyapi.ru/anthropic/v1",
+        "apiKey": "{env:PROXYAPI_API_KEY}"
+      }
+    },
+    "google": {
+      "options": {
+        "baseURL": "https://api.proxyapi.ru/google/v1beta",
+        "apiKey": "{env:PROXYAPI_API_KEY}"
       }
     },
     "zai": {
       "options": {
-        "baseURL": "{env:ZAI_BASE_URL}",
+        "baseURL": "https://naomi.nau.im/api",
         "apiKey": "{env:ZAI_API_KEY}"
       }
     }
