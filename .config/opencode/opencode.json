@@ -19,5 +19,12 @@
         "apiKey": "{env:ZAI_API_KEY}"
       }
     }
+  },
+  "mcp": {
+    "yandex-cloud-documentation": {
+      "type": "remote",
+      "url": "https://docs.mcp.cloud.yandex.net/mcp",
+      "enabled": true
+    }
   }
 }
