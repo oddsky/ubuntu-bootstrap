@@ -21,9 +21,17 @@
     }
   },
   "mcp": {
-    "yandex-cloud-documentation": {
+    // "yandex-cloud-documentation": {
+    //   "type": "remote",
+    //   "url": "https://docs.mcp.cloud.yandex.net/mcp",
+    //   "enabled": true
+    // },
+    "context7": {
       "type": "remote",
-      "url": "https://docs.mcp.cloud.yandex.net/mcp",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      },
       "enabled": true
     }
   }

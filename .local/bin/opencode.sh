@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-# read KEY
-# echo $KEY | gpg --encrypt --recipient <email> --output - | base64
+# read KEY; echo $KEY | gpg --encrypt --recipient rossamakhin01@gmail.com --output - | base64
 
 PROXYAPI_API_KEY_ENC="\
 hF4DGNwPncbTkogSAQdA2JRerCuRCXWvHDMxiGPeFpho8k7pHYjTdigEvz3J90wwvYxoPAZmDSxo\
@@ -17,12 +16,24 @@ nRg903PMQ7NcFxlRPi6QXms51o36C5dVtodx5IhxAnLj3DYe3pcpl+vbjNpWCfpd4CPFkoDgJZrW\
 hUQUCcc6SiLmkskFGTbtZjmEWG44Yg==\
 "
 
+CONTEXT7_API_KEY_ENC="\
+hF4DGNwPncbTkogSAQdA3SjxPFc4Y3W1roURn9JPA8vIaPMBPVcUXaWFNeHZxTYwymZUsOvwNXVf\
+3QtFbiyKR9XC78+iuogG1+KEgaAjKjRxxXkXYjlTTTZltLVxj5hY0mYB1N0dPBgEpBfz0kJhTub/\
++hrWna799Gtq3+Np4+dTlxJv7TuPNb4doJi15mEJy5npfL+gy9Cp/Tv/YVhX/+wwuOpdn5S5f/dI\
+wbwGs2+50oemBodkSw1oiW1QNxdw2KcngsD1bvc=\
+"
+
+decode() {
+    echo $1 | base64 -d | gpg -d
+}
+
 podman build -f ~/.images/opencode.Dockerfile -t localhost/opencode:latest
 podman run --rm -it \
     --network host \
     -w "$PWD" \
     -v "$PWD:$PWD:rw" \
     -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:rw" \
-    -e "PROXYAPI_API_KEY=$(echo $PROXYAPI_API_KEY_ENC | base64 -d | gpg -d)" \
-    -e "ZAI_API_KEY=$(echo $ZAI_API_KEY_ENC | base64 -d | gpg -d)" \
+    -e "PROXYAPI_API_KEY=$(decode $PROXYAPI_API_KEY_ENC)" \
+    -e "ZAI_API_KEY=$(decode $ZAI_API_KEY_ENC)" \
+    -e "CONTEXT7_API_KEY=$(decode $CONTEXT7_API_KEY_ENC)" \
     localhost/opencode:latest
