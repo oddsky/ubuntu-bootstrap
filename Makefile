@@ -1,14 +1,14 @@
 APT_PKGS := alacritty tmux evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
 			ripgrep curl skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
-			network-manager-openconnect-gnome gnome-browser-connector
+			zsh network-manager-openconnect-gnome gnome-browser-connector
 SNAP_PKGS := pinta telegram-desktop
 ARCH_PKGS := kubectl helm helmfile sops k9s dive uv
 FONT_URL := https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 KTALK_URL := https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb
 NVIM_URL := https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 
-all: symlinks dconf apt snap arch helm zsh fonts ktalk nvim
-symlinks:
+all: sync dconf apt snap arch helm zsh fonts ktalk nvim
+sync:
 	find -type d ! -path '*.git/*' | xargs -I{} mkdir -p ~/{}
 	find -type f ! -path '*.git/*' | xargs -I{} ln -sfr {} ~/{}
 dconf:
