@@ -1,5 +1,4 @@
 ZSH_THEME="fwalch"
-RPROMPT='%F{241}<$?> [%*]%{$reset_color%}'
 HISTFILE=~/places/.zsh_history
 HISTFILESIZE=1000000000
 HISTSIZE=1000000000
