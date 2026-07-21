@@ -3,6 +3,7 @@
   "plugin": ["./plugins/telegram-notify.ts"],
   "model": "zai/glm-5.1",
   "share": "disabled",
+  "theme": "system",
   "permission": {
     "read": {
       "*": "allow",

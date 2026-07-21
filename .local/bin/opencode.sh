@@ -41,7 +41,7 @@ podman run --rm -it \
     --network host \
     -w "$PWD" \
     -v "$PWD:$PWD:rw" \
-    -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:rw" \
+    -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:ro" \
     -v "$PWD/.config/opencode/AGENTS.md:/root/.config/opencode/AGENTS.md:ro" \
     -v "$PWD/.config/opencode/plugins:/root/.config/opencode/plugins:ro" \
     -e "PROXYAPI_API_KEY=$(decode $PROXYAPI_API_KEY_ENC)" \
