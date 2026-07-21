@@ -23,6 +23,15 @@ hF4DGNwPncbTkogSAQdA3SjxPFc4Y3W1roURn9JPA8vIaPMBPVcUXaWFNeHZxTYwymZUsOvwNXVf\
 wbwGs2+50oemBodkSw1oiW1QNxdw2KcngsD1bvc=\
 "
 
+TELEGRAM_BOT_TOKEN_ENC="\
+hF4DGNwPncbTkogSAQdA0TXS29IAQ2n3mowS2uWI8+wosMU2YDo8NLxSiKal7GQw6w/IAH2a9gfz\
+w/dCE+sFyoNvC3K55I0HyUIB8ABJ3/FyDNTXm5sTeWgyOoeHTQEt0moBtcKHOEDymVPhnPJVbLtF\
+MtIxtLNYScjZRgTqtLJM7nUvdN5joL8GC5cZtttCqozcbHpYetlENBiX4qvIomqdaibdpVsLr524\
+3/Mx5fq5AD60yZPsCFmKD/XrcqVS6ZqDvhLqgAkdJBfP\
+"
+
+TELEGRAM_CHAT_ID="435004209"
+
 decode() {
     echo $1 | base64 -d | gpg -d
 }
@@ -33,7 +42,10 @@ podman run --rm -it \
     -w "$PWD" \
     -v "$PWD:$PWD:rw" \
     -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:rw" \
+    -v "$PWD/.config/opencode/plugins:/root/.config/opencode/plugins:ro" \
     -e "PROXYAPI_API_KEY=$(decode $PROXYAPI_API_KEY_ENC)" \
     -e "ZAI_API_KEY=$(decode $ZAI_API_KEY_ENC)" \
     -e "CONTEXT7_API_KEY=$(decode $CONTEXT7_API_KEY_ENC)" \
+    -e "TELEGRAM_BOT_TOKEN=$(decode $TELEGRAM_BOT_TOKEN_ENC)" \
+    -e "TELEGRAM_CHAT_ID=$TELEGRAM_CHAT_ID" \
     localhost/opencode:latest
