@@ -42,8 +42,8 @@ podman run --rm -it \
     -w "$PWD" \
     -v "$PWD:$PWD:rw" \
     -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:ro" \
-    -v "$PWD/.config/opencode/AGENTS.md:/root/.config/opencode/AGENTS.md:ro" \
-    -v "$PWD/.config/opencode/plugins:/root/.config/opencode/plugins:ro" \
+    -v "$HOME/.config/opencode/AGENTS.md:/root/.config/opencode/AGENTS.md:ro" \
+    -v "$HOME/.config/opencode/plugins/telegram-notify.ts:/root/.config/opencode/plugins/telegram-notify.ts:ro" \
     -e "PROXYAPI_API_KEY=$(decode $PROXYAPI_API_KEY_ENC)" \
     -e "ZAI_API_KEY=$(decode $ZAI_API_KEY_ENC)" \
     -e "CONTEXT7_API_KEY=$(decode $CONTEXT7_API_KEY_ENC)" \
