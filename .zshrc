@@ -20,6 +20,7 @@ alias py="python3"
 alias cl="claude.sh"
 alias oc="opencode.sh"
 alias kl="kubectl"
+alias cp="wl-copy"
 
 # batcat for help and man pages
 alias -g -- -h="-h 2>&1 | batcat -lman -sp"
