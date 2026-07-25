@@ -242,10 +242,10 @@ M.load = function(colors)
     hl("FzfLuaBorder", { link = "VertSplit" })
 
     -- yaml
-    hl("@boolean.yaml", { fg = colors.fg1 })
+    -- hl("@boolean.yaml", { fg = colors.fg1 })
     hl("@property.yaml", { fg = colors.orange })
-    hl("@string.yaml", { fg = colors.fg1 })
-    hl("@number.yaml", { fg = colors.fg1 })
+    -- hl("@string.yaml", { fg = colors.fg1 })
+    -- hl("@number.yaml", { fg = colors.fg1 })
 
     -- toml
     hl("@property.toml", { fg = colors.orange })
