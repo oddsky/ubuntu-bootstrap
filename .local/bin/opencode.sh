@@ -41,6 +41,8 @@ podman run --rm -it \
     --network host \
     -w "$PWD" \
     -v "$PWD:$PWD:rw" \
+    -v "$HOME/.local/share/opencode/:/root/.local/share/opencode/:rw" \
+    -v "$HOME/.local/state/opencode/:/root/.local/state/opencode/:rw" \
     -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:ro" \
     -v "$HOME/.config/opencode/AGENTS.md:/root/.config/opencode/AGENTS.md:ro" \
     -v "$HOME/.config/opencode/plugins/telegram-notify.ts:/root/.config/opencode/plugins/telegram-notify.ts:ro" \
