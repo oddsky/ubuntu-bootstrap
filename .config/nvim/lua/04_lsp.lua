@@ -53,7 +53,6 @@ require("mason-tool-installer").setup({
         "pyright",
         "yaml-language-server",
         -- formatters
-        "beautysh",
         "cbfmt",
         "fixjson",
         "gofumpt",
