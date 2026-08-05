@@ -1,12 +1,3 @@
-APT_PKGS := alacritty tmux evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
-			ripgrep curl skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
-			network-manager-openconnect-gnome gnome-browser-connector
-SNAP_PKGS := pinta telegram-desktop
-UV_PKGS := tldr beautysh ruff pyright
-FONT_URL := https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
-KTALK_URL := https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb
-NVIM_URL := https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
-
 all: sync dconf apt snap uv k9s helm helmfile sops taplo cbfmt gofumpt stylua yamlfmt kubectl uv_pkgs helm_plugin fonts ktalk nvim
 
 sync:
@@ -21,10 +12,13 @@ dconf:
 	dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
 
 apt:
-	sudo apt install -y $(APT_PKGS)
+	sudo apt install -y \
+		alacritty tmux evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
+		ripgrep curl skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
+		network-manager-openconnect-gnome gnome-browser-connector
 
 snap:
-	sudo snap install $(SNAP_PKGS)
+	sudo snap install pinta telegram-desktop
 
 uv:
 	curl -fsSL https://releases.astral.sh/github/uv/releases/download/0.12.2/uv-x86_64-unknown-linux-gnu.tar.gz \
@@ -89,6 +83,7 @@ kubectl:
 		> ~/.local/bin/kubectl
 	chmod +x ~/.local/bin/yamlfmt
 
+UV_PKGS := tldr beautysh ruff pyright
 uv_pkgs:
 	$(foreach p, $(UV_PKGS), uv tool install $(p);)
 
@@ -96,11 +91,17 @@ helm_plugin:
 	helm plugin install --verify=false https://github.com/databus23/helm-diff || true
 
 fonts:
-	wget $(FONT_URL) -O /tmp/font.zip && unzip -o /tmp/font.zip -d ~/.fonts
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip \
+		-O /tmp/font.zip
+	unzip -o /tmp/font.zip -d ~/.fonts
 
 ktalk:
-	wget $(KTALK_URL) -O /tmp/ktalk.deb && sudo apt install -y /tmp/ktalk.deb
+	wget https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb \
+		-O /tmp/ktalk.deb
+	sudo apt install -y /tmp/ktalk.deb
 
 nvim:
-	wget $(NVIM_URL) -O /tmp/nvim.tar.gz && tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/ \
-		&& ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
+	wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz \
+		-O /tmp/nvim.tar.gz
+	tar xzf /tmp/nvim.tar.gz -C ~/.local/opt/nvim/
+	ln -sfr ~/.local/opt/nvim/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
