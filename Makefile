@@ -8,7 +8,7 @@ FONT_URL := https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Jet
 KTALK_URL := https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb
 NVIM_URL := https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 
-all: sync dconf apt snap arch helm zsh fonts ktalk nvim
+all: sync dconf apt snap arch uv helm zsh fonts ktalk nvim
 sync:
 	find -type d ! -path '*.git/*' | xargs -I{} mkdir -p ~/{}
 	find -type f ! -path '*.git/*' | xargs -I{} ln -sfr {} ~/{}
