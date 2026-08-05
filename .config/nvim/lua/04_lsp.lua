@@ -50,16 +50,10 @@ require("mason-tool-installer").setup({
         "java-language-server",
         "lua-language-server",
         "mbake",
-        "pyright",
         "yaml-language-server",
         -- formatters
-        "cbfmt",
         "fixjson",
-        "gofumpt",
         "google-java-format",
-        "yamlfmt",
-        "stylua",
-        "taplo",
     },
     start_delay = 3000, -- 3 second delay
 })
