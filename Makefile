@@ -3,7 +3,7 @@ APT_PKGS := alacritty tmux evolution-ews keepassxc podman-docker wl-clipboard fz
 			zsh network-manager-openconnect-gnome gnome-browser-connector
 SNAP_PKGS := pinta telegram-desktop
 ARCH_PKGS := kubectl helm helmfile sops k9s dive uv
-UV_PKGS := tldr beautysh
+UV_PKGS := tldr beautysh ruff
 FONT_URL := https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 KTALK_URL := https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb
 NVIM_URL := https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
