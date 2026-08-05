@@ -1,13 +1,13 @@
 APT_PKGS := alacritty tmux evolution-ews keepassxc podman-docker wl-clipboard fzf npm \
 			ripgrep curl skopeo ansible golang-go openjdk-21-jdk maven python3-venv \
-			zsh network-manager-openconnect-gnome gnome-browser-connector
+			network-manager-openconnect-gnome gnome-browser-connector
 SNAP_PKGS := pinta telegram-desktop
 UV_PKGS := tldr beautysh ruff pyright
 FONT_URL := https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 KTALK_URL := https://st.ktalk.host/data/ktalk-app/linux/ktalk3.3.0amd64.deb
 NVIM_URL := https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 
-all: sync dconf apt snap uv k9s helm helmfile sops taplo cbfmt gofumpt stylua yamlfmt kubectl uv_pkgs helm_plugin zsh fonts ktalk nvim
+all: sync dconf apt snap uv k9s helm helmfile sops taplo cbfmt gofumpt stylua yamlfmt kubectl uv_pkgs helm_plugin fonts ktalk nvim
 
 sync:
 	find -type d ! -path '*.git/*' | xargs -I{} mkdir -p ~/{}
@@ -94,9 +94,6 @@ uv_pkgs:
 
 helm_plugin:
 	helm plugin install --verify=false https://github.com/databus23/helm-diff || true
-
-zsh:
-	test -d ~/.local/opt/ohmyzsh/ || git clone https://github.com/ohmyzsh/ohmyzsh/ ~/.local/opt/ohmyzsh/
 
 fonts:
 	wget $(FONT_URL) -O /tmp/font.zip && unzip -o /tmp/font.zip -d ~/.fonts
