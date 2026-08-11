@@ -46,6 +46,9 @@ podman run --rm -it \
     -v "$HOME/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:ro" \
     -v "$HOME/.config/opencode/AGENTS.md:/root/.config/opencode/AGENTS.md:ro" \
     -v "$HOME/.config/opencode/plugins/telegram-notify.ts:/root/.config/opencode/plugins/telegram-notify.ts:ro" \
+    -e "WAYLAND_DISPLAY=$WAYLAND_DISPLAY" \
+    -e "XDG_RUNTIME_DIR=/tmp/xdg-runtime" \
+    -v "/run/user/$(id -u):/tmp/xdg-runtime:rw" \
     -e "PROXYAPI_API_KEY=$(decode $PROXYAPI_API_KEY_ENC)" \
     -e "ZAI_API_KEY=$(decode $ZAI_API_KEY_ENC)" \
     -e "CONTEXT7_API_KEY=$(decode $CONTEXT7_API_KEY_ENC)" \

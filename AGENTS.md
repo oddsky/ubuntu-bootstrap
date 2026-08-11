@@ -11,6 +11,7 @@ this is a declarative config repo.
   `make sync`. Add new files under `home/` and they will be linked on next sync.
 - `Makefile` — the only entry point. No package.json, no scripts dir.
 - `home/.images/` — `Containerfile`s for the `opencode.sh` / `claude.sh` wrappers.
+  The opencode image also installs `wl-clipboard` for clipboard support.
 - `home/.config/opencode/AGENTS.md` — **opencode's runtime instructions inside
   the podman container**, a separate concern from this file. Do not confuse the two.
 
@@ -43,6 +44,10 @@ this is a declarative config repo.
   instead of `kubectl` (line ~84). The binary lands unexecutable.
 - `opencode.sh` / `claude.sh` rebuild their podman image on **every** invocation
   (`podman build` then `podman run --rm`). They mount the current `$PWD` as rw.
+- `opencode.sh` mounts `/run/user/$(id -u)` into the container and forwards
+  `WAYLAND_DISPLAY` / `XDG_RUNTIME_DIR` so `wl-clipboard` (installed via the
+  Dockerfile) can reach the host Wayland compositor. Requires an active Wayland
+  session on the host.
 - `make sync` uses `ln -sfr`, so it will **overwrite** existing paths in `$HOME`
   that collide with files under `home/`. There is no backup step.
 - `.bash_aliases` sets `cat="batcat"` — assume `cat` is bat on this system.
