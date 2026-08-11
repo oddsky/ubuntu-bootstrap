@@ -1,8 +1,8 @@
 all: sync dconf apt snap uv k9s helm helmfile sops taplo cbfmt gofumpt stylua yamlfmt kubectl uv_pkgs helm_plugin fonts ktalk nvim
 
 sync:
-	find -type d ! -path '*.git/*' | xargs -I{} mkdir -p ~/{}
-	find -type f ! -path '*.git/*' | xargs -I{} ln -sfr {} ~/{}
+	cd home/ && find -type d | xargs -I{} mkdir -p ~/{}
+	cd home/ && find -type f | xargs -I{} ln -sfr {} ~/{}
 
 dconf:
 	dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
