@@ -50,5 +50,4 @@ this is a declarative config repo.
   session on the host.
 - `make sync` uses `ln -sfr`, so it will **overwrite** existing paths in `$HOME`
   that collide with files under `home/`. There is no backup step.
-- `.bash_aliases` sets `cat="batcat"` — assume `cat` is bat on this system.
 - `.kube/config` points at `http://localhost:8081` (a local proxy), not a real cluster.
