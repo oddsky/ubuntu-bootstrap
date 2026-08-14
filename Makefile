@@ -10,6 +10,9 @@ dconf:
 	dconf write /org/gnome/desktop/wm/keybindings/switch-input-source "['<Alt>Shift_L']"
 	dconf write /org/gnome/settings-daemon/plugins/media-keys/calculator "['<Super>c']"
 	dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
+	dconf write /org/gnome/desktop/background/picture-uri "''"
+	dconf write /org/gnome/desktop/background/picture-uri-dark "''"
+	dconf write /org/gnome/desktop/background/primary-color "'#56334B'"
 
 apt:
 	sudo apt install -y \
