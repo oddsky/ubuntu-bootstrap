@@ -5,7 +5,6 @@ export GNUPGHOME="~/places/gpg"
 export AWS_CONFIG_FILE="~/places/.aws_credentials"
 export FZF_DEFAULT_OPTS="--reverse"
 export BAT_THEME="base16"
-export MANPAGER="batcat -lman -sp"
 
 alias cat="batcat"
 alias v="nvim"
