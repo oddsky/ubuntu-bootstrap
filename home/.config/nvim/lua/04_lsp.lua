@@ -54,6 +54,7 @@ require("mason-tool-installer").setup({
         -- formatters
         "fixjson",
         "google-java-format",
+        "prettier",
     },
     start_delay = 3000, -- 3 second delay
 })
