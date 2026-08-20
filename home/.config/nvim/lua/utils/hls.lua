@@ -12,6 +12,7 @@ M.load = function(colors)
     vim.o.termguicolors = true
 
     hl("Normal", { bg = colors.bg1, fg = colors.fg1 })
+    hl("NormalNC", { bg = colors.bg0, fg = colors.fg1 })
     hl("WinBar", { bg = "NONE" })
     hl("WinBarNC", { bg = "NONE" })
     hl("NormalFloat", { fg = colors.fg1 })

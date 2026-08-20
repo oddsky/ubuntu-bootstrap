@@ -11,6 +11,7 @@ local colors = {
     visual       =  "#213445",
     bg_diff_add  =  "#1f4729",
     bg_diff_del  =  "#471f1f",
+    bg0          =  "#18181b",
     bg1          =  "#1d1d20",
     bg2          =  "#222225",
     bg3          =  "#2E2E33",
