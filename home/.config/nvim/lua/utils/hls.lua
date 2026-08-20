@@ -12,7 +12,7 @@ M.load = function(colors)
     vim.o.termguicolors = true
 
     hl("Normal", { bg = colors.bg1, fg = colors.fg1 })
-    hl("NormalNC", { bg = colors.bg0, fg = colors.fg1 })
+    -- hl("NormalNC", { bg = colors.bg0, fg = colors.fg1 })
     hl("WinBar", { bg = "NONE" })
     hl("WinBarNC", { bg = "NONE" })
     hl("NormalFloat", { fg = colors.fg1 })
@@ -55,7 +55,7 @@ M.load = function(colors)
     hl("Question", { fg = colors.blue })
     hl("SpecialKey", { fg = colors.fg1 })
     hl("StatusLine", { fg = colors.cyan, bg = colors.bg3, italic = true })
-    hl("StatusLineNC", { fg = colors.fg2, bg = colors.bg3, italic = true })
+    hl("StatusLineNC", { fg = colors.fg2, bg = colors.bg2, italic = true })
     hl("TabLine", { fg = colors.fg2, bg = colors.bg3 })
     hl("TabLineFill", { fg = colors.fg2, bg = colors.bg2 })
     hl("TablineSel", { fg = colors.fg1, bg = colors.bg1 })
@@ -252,6 +252,10 @@ M.load = function(colors)
     -- nvim-treesitter-context
     hl("TreesitterContext", { bg = colors.bg2 })
     hl("TreesitterContextLineNumber", { fg = colors.fg2, bg = colors.bg2 })
+
+    hl("NeoTreeWinSeparator", { bg = colors.bg1, fg = colors.bg1 })
+    hl("NeoTreeNormal", { bg = colors.bg0 })
+    hl("NeoTreeNormalNC", { bg = colors.bg0 })
 end
 
 return M
