@@ -34,8 +34,7 @@ M.load = function(colors)
     hl("DiffText", { fg = colors.orange })
     hl("EndOfBuffer", { bg = "NONE", fg = colors.bg1 })
     hl("ErrorMsg", { fg = colors.red, underline = true })
-    hl("VertSplit", { fg = colors.bg2 })
-    hl("WinSeparator", { fg = colors.bg4 })
+    hl("WinSeparator", { fg = colors.bg3 })
     hl("Folded", { fg = colors.fg2 })
     hl("FoldColumn", { fg = colors.fg2 })
     hl("SignColumn", { fg = colors.fg1 })
@@ -54,7 +53,8 @@ M.load = function(colors)
     hl("PmenuThumb", { bg = colors.fg2 })
     hl("Question", { fg = colors.blue })
     hl("SpecialKey", { fg = colors.fg1 })
-    hl("StatusLine", { fg = colors.fg2, bg = "NONE", italic = true })
+    hl("StatusLine", { fg = colors.cyan, bg = colors.bg3, italic = true })
+    hl("StatusLineNC", { fg = colors.fg2, bg = colors.bg3, italic = true })
     hl("TabLine", { fg = colors.fg2, bg = colors.bg3 })
     hl("TabLineFill", { fg = colors.fg2, bg = colors.bg2 })
     hl("TablineSel", { fg = colors.fg1, bg = colors.bg1 })
@@ -231,24 +231,22 @@ M.load = function(colors)
     hl("DiagnosticHint", { fg = colors.blue, italic = true })
     hl("DiagnosticInfo", { fg = colors.cyan, italic = true })
 
+    -- yaml
+    hl("@property.yaml", { fg = colors.orange })
+
+    -- toml
+    hl("@property.toml", { fg = colors.orange })
+
+    -- lewis6991/gitsigns.nvim
     hl("GitSignsAdd", { fg = colors.green })
     hl("GitSignsChange", { fg = colors.yellow })
     hl("GitSignsDelete", { fg = colors.red })
 
-    -- indent-blankline
-    hl("Indent", { link = "VertSplit" })
+    -- saghen/blink.indent
+    hl("Indent", { link = "WinSeparator" })
 
-    -- FzfLua
-    hl("FzfLuaBorder", { link = "VertSplit" })
-
-    -- yaml
-    -- hl("@boolean.yaml", { fg = colors.fg1 })
-    hl("@property.yaml", { fg = colors.orange })
-    -- hl("@string.yaml", { fg = colors.fg1 })
-    -- hl("@number.yaml", { fg = colors.fg1 })
-
-    -- toml
-    hl("@property.toml", { fg = colors.orange })
+    -- ibhagwan/fzf-lua
+    hl("FzfLuaBorder", { link = "WinSeparator" })
 
     -- nvim-treesitter-context
     hl("TreesitterContext", { bg = colors.bg2 })

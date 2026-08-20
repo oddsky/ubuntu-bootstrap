@@ -6,10 +6,7 @@ vim.opt.undofile = true -- Persistent undo
 vim.opt.scrolloff = 999 -- Keep cursor in the middle of the screen
 vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
-
 vim.opt.cmdheight = 0
-vim.opt.laststatus = 3
-
 vim.opt.ignorecase = true -- Case insensitive search
 vim.opt.smartcase = true -- Case sensitive if uppercase in search
 
@@ -28,14 +25,6 @@ vim.g.maplocalleader = " " -- Set local leader key (NEW)
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
-    end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "help", "man" },
-    callback = function()
-        vim.cmd("wincmd L")
-        vim.cmd("vertical resize 80")
     end,
 })
 

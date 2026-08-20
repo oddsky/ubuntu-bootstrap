@@ -137,10 +137,13 @@ require("neo-tree").setup({
             hide_gitignored = false,
             hide_by_name = {
                 ".git",
+                ".idea",
                 ".ruff_cache",
                 "__pycache__",
             },
-            hide_by_pattern = { "*egg-info*" },
+            hide_by_pattern = {
+                "*egg-info*",
+            },
             always_show_by_pattern = {
                 ".env*",
             },
