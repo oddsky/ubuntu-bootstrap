@@ -52,7 +52,6 @@ end)
 
 vim.keymap.set("n", "<leader>D", "<CMD>tabclose<CR>")
 vim.keymap.set("n", "<leader>g", "<CMD>tab G<CR>")
--- vim.keymap.set("n", "<leader>g", "<CMD>G<CR>")
 vim.keymap.set("n", "<leader>0", "<CMD>e ~/places/git/personal/second-brain/scratch.md<CR>")
 
 vim.api.nvim_create_user_command("W", "w", { bang = true })
