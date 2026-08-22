@@ -43,9 +43,7 @@ def main():
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         text=True,
-        env={
-            "FZF_DEFAULT_OPTS": "--reverse"
-        },
+        env={"FZF_DEFAULT_OPTS": "--reverse"},
     )
     stdout, _ = process.communicate(input="\n".join(hosts))
     host = stdout.strip()
@@ -53,7 +51,7 @@ def main():
     if not host:
         sys.exit()
 
-    subprocess.run(
+    _ = subprocess.run(
         ["/usr/bin/tmux", "new-window", "-n", host, "ssh", host],
         check=False,
     )
