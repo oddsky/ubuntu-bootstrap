@@ -255,6 +255,7 @@ M.load = function(colors)
 
     hl("NeoTreeWinSeparator", { bg = colors.bg1, fg = colors.bg1 })
     hl("NeoTreeNormal", { bg = colors.bg0 })
+    hl("NeoTreeEndOfBuffer", { fg = colors.bg0 })
     hl("NeoTreeNormalNC", { bg = colors.bg0 })
 end
 
